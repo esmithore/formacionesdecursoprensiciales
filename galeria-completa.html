@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOTOS DEL CURSO - Curso Esmith ORE</title>
+    <link rel="stylesheet" href="style.css"> <!-- Incluir el archivo CSS común -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:#000; /* Fondo negro */
+            color: #ffffff; /* Texto general en blanco */
+        }
+
+        h2, .txt-p {
+            text-align: center;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            margin-top: 40px;
+            font-size: 28px;
+        }
+
+        .txt-p {
+            font-size: 20px;
+            color: #e91717;
+            margin-bottom: 20px;
+        }
+
+        .galeria-completa {
+            display: flex; 
+            justify-content: center;
+            gap: 20px; 
+            flex-wrap: wrap; 
+            margin-bottom: 20px; 
+        }
+
+        .galeria-completa img {
+            width: 450px; 
+            height: auto; 
+            border: 5px solid red; /* Contorno rojo intenso */
+            border-radius: 15px;   /* Bordes redondeados */
+        }
+
+        .galeria-completa img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 900px) {
+            .galeria-completa img {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .galeria-completa img {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<!-- Incluye el header con el menú hamburguesa en esta página también -->
+    <header class="header">
+        <div class="logo">
+            <h1>APERTURA <span>DEL</span></h1>
+            <h1>MÉTODO <span>ADJUSTER</span></h1>
+            <p>intra-articular pressure change</p>
+        </div>
+
+        <!-- Botón hamburguesa -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-label">
+            <img src="images/images/menu.png" class="menu-icon" alt="Menú">
+        </label>
+
+        <!-- Navegación -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#cursos">Los Cursos</a></li>
+                <li><button class="btn-acceso"><i class="fa-solid fa-right-to-bracket"></i> Acceso</button></li>
+                <li><button class="btn-registro"><i class="fa-solid fa-user-plus"></i> Registro</button></li>
+                <li><a href="comunidad.html">Comunidad</a></li>
+            </ul>
+        </nav>
+    </header>
+<body>
+
+    <h2>FOTOS DEL CURSO</h2>
+    <p class="txt-p">GALERÍA</p>
+
+    <div class="galeria-completa">
+        <img src="images/images/galeria4.jpeg" alt="Foto 1">
+        <img src="images/images/galeria5.jpeg" alt="Foto 2">
+        <img src="images/images/galeria8.jpeg" alt="Foto 3">
+        <img src="images/images/galeria9.jpeg" alt="Foto 4">
+        <img src="images/images/galeria10.jpeg" alt="Foto 5">
+        <img src="images/images/galeria11.jpeg" alt="Foto 6">
+        <img src="images/images/galeria12.jpeg" alt="Foto 7">
+        <img src="images/images/galeria13.jpeg" alt="Foto 8">
+        <img src="images/images/galeria14.jpeg" alt="Foto 9">
+        <img src="images/images/galeria15.jpeg" alt="Foto 10">
+        <img src="images/images/galeria16.jpeg" alt="Foto 11">
+        <img src="images/images/galeria17.jpeg" alt="Foto 12">
+        <img src="images/images/galeria18.jpeg" alt="Foto 13">
+        <img src="images/images/galeria6.jpeg" alt="Foto 14">
+        <img src="images/images/galeria7.jpeg" alt="Foto 15">
+        <img src="images/images/tecnica1.jpeg" alt="Foto 16">
+        <img src="images/images/tecnica2.jpeg" alt="Foto 17">
+        <img src="images/images/tecnica3.jpeg" alt="Foto 18">
+        <img src="images/images/tecnica4.jpeg" alt="Foto 19">
+        <img src="images/images/tecnica5.jpeg" alt="Foto 20">
+        <img src="images/images/tecnica6.jpeg" alt="Foto 21">
+        <img src="images/images/tecnica7.jpeg" alt="Foto 22">
+        <img src="images/images/tecnica8.jpeg" alt="Foto 23">
+        <img src="images/images/tecnica10.jpeg" alt="Foto 24">
+        <img src="images/images/tecnica11.jpeg" alt="Foto 25">
+        <img src="images/images/tecnica12.jpeg" alt="Foto 26">
+        <img src="images/images/tecnica13.jpeg" alt="Foto 28">
+        <img src="images/images/tecnica14.jpeg" alt="Foto 29">
+        <img src="images/images/tecnica15.jpeg" alt="Foto 30">
+        <img src="images/images/tecnica16.jpeg" alt="Foto 31">
+        <!-- Agrega aquí todas las fotos que quieras -->
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método ORE - Esmith Ore</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="contador.js" defer></script>
+    <script src="javi.js" defer></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="logo">
+        <h1>APERTURA <span>DEL</span></h1>
+        <h1>MÉTODO <span>ADJUSTER</span></h1>
+        <p>intra-articular pressure change</p>
+    </div>
+
+    <!-- Botón hamburguesa -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-label">
+        <img src="images/images/menu.png" class="menu-icon" alt="Menú">
+    </label>
+
+    <!-- Navegación -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#cursos">Los Cursos</a></li>
+            <li><button class="btn-acceso"><i class="fa-solid fa-right-to-bracket"></i> Acceso</button></li>
+            <li><button class="btn-registro"><i class="fa-solid fa-user-plus"></i> Registro</button></li>
+            <li><a href="comunidad.html">Comunidad</a></li>
+            <!-- 🔹 Botón Logout (oculto hasta login) -->
+        <li><button id="btnLogout" style="display:none;">Cerrar sesión</button></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ================= MODAL ACCESO ================= -->
+<div id="modal-acceso" class="modal">
+    <div class="modal-content">
+        <span class="close close-acceso">&times;</span>
+        <h2>Iniciar Sesión</h2>
+        <form id="form-login" class="formulario" method="POST" action="login.php">
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit" class="btn-ingresar">Ingresar</button>
+        </form>
+        <p>¿No tienes cuenta? <a href="#" id="openRegistro">Regístrate aquí</a></p>
+    </div>
+</div>
+
+<!-- ================= MODAL REGISTRO ================= -->
+<div id="modal-registro" class="modal">
+    <div class="modal-content">
+        <span class="close close-registro">&times;</span>
+        <h2>Registro</h2>
+        <form id="form-register" class="formulario" method="POST" action="registro.php">
+            <input type="text" name="nombre" placeholder="Nombre completo" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit" class="btn-registrar">Registrarse</button>
+        </form>
+        <p>¿Ya tienes cuenta? <a href="#" id="openAcceso">Inicia sesión aquí</a></p>
+    </div>
+</div>
+
+<!-- 🔹 Bloque Mi Cuenta -->
+<section id="mi-cuenta" style="display:none; margin: 24px 0;">
+  <h2>Mi cuenta</h2>
+  <p id="cuentaInfo"></p>
+</section>
+
+<!-- 🔹 Panel Admin -->
+<section id="panel-admin" style="display:none; margin: 24px 0;">
+  <h2>Panel de registros</h2>
+  <p>Total de usuarios registrados: <strong id="totalUsers">–</strong></p>
+  <button id="btnExportCsv">Exportar CSV</button>
+</section>
+
+<!-- HERO -->
+<main class="hero">
+    <!-- Texto -->
+    <div class="hero-text">
+        <h1>
+            FORMACIÓN DE MANIOBRAS <br>
+            DE ALTA VELOCIDAD <br>
+            <span class="resaltado">EN COLUMNA VERTEBRAL (HVLLA)</span>
+        </h1>
+        <p>MÉTODO ADJUSTER INTRA-ARTICULAR PRESSURE CHANGE</p>
+        <a href="#cursos" class="btn">Ver Cursos</a>
+
+        <!-- Redes sociales -->
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=100085425810754&sk=photos" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/esmith_ore?igsh=bno5Nm5yMGZrcXE2" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@esmithore_fisio_?_t=ZS-8zK4ZFel7vl&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@esmithore?si=nHZGvyjGUQ1zmDjZ" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- Imagen de marca de agua -->
+    <div class="hero-image">
+        <img src="images/images/principal.jpeg" alt="Método Adjuster">
+    </div>
+</main>
+
+<!-- CONTADORES -->
+<section class="stats">
+    <div class="stat"><h2 class="counter" data-target="4000">0</h2><p>PROFESIONALES CAPACITADOS</p></div>
+    <div class="stat"><h2 class="counter" data-target="300">0</h2><p>CURSOS PRESENCIALES</p></div>
+    <div class="stat"><h2 class="counter" data-target="10">0</h2><p>AÑOS DE EXPERIENCIA</p></div>
+    <div class="stat"><h2 class="counter" data-target="3500">0</h2><p>HORAS DE CURSO</p></div>
+</section>
+
+<!-- MÉTODO ORE -->
+<section class="metodo">
+  <h2>EL MÉTODO ORE</h2>
+  <p>No busques la transversalidad. Conviértete en un profesional vertical.</p>
+  <div class="video-container">
+    <iframe 
+        src="https://www.youtube.com/embed/9hz04EVRwiw" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<!-- CURSOS -->
+<section id="cursos" class="courses">
+    <h2>MÉTODO ORE</h2>
+    <span class="subtitle">LOS CURSOS</span>
+    <div class="course-list">
+        <!-- Curso 1 -->
+        <div class="course">
+            <div class="course-img"><img src="images/images/curso 1.jpeg" alt="Curso Maniobras HV"></div>
+            <div class="course-info">
+                <h3>Curso Maniobras de Alta Velocidad en Articulaciones Periféricas</h3>
+                <p class="highlight">Expande tu destreza en la manipulación de articulaciones periféricas</p>
+                <p>Especialízate en técnicas avanzadas de maniobras de alta velocidad para las articulaciones periféricas. Este curso te ayudará a perfeccionar tus habilidades y brindar un tratamiento más efectivo y seguro.</p>
+            </div>
+        </div>
+        <!-- Curso 2 -->
+        <div class="course reverse">
+            <div class="course-img"><img src="images/images/curso2.jpeg" alt="Curso Puntos Gatillo"></div>
+            <div class="course-info">
+                <h3>Curso de Formación de Puntos Gatillos Miofasciales (PGM)</h3>
+                <p class="highlight">Domina las técnicas de tratamiento de puntos gatillo</p>
+                <p>Adquiere los conocimientos esenciales para tratar puntos gatillo miofasciales con eficacia. Este curso te proporciona herramientas prácticas para aliviar dolores musculares y mejorar la función del cuerpo humano.</p>
+            </div>
+        </div>
+        <!-- Curso 3 -->
+        <div class="course">
+            <div class="course-img"><img src="images/images/curso3.jpeg" alt="Método Adjuster"></div>
+            <div class="course-info">
+                <h3>Curso Formación de Maniobras de Alta Velocidad en Columna Vertebral - Método Adjuster</h3>
+                <p class="highlight">Avanza en tu técnica con el Método Adjuster</p>
+                <p>Aprende maniobras de alta velocidad especializadas para la columna vertebral, perfeccionando tus habilidades con el método Adjuster. Un curso que te brindará los conocimientos prácticos para mejorar tu enfoque terapéutico.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comunidad -->
+<section class="comunidad">
+    <h2>ÚNETE A NUESTRA COMUNIDAD</h2>
+    <p>Forma parte de un grupo de profesionales comprometidos con la salud y la quiropraxia.</p>
+    <a href="comunidad.html" class="btn-primary">Ver Comunidad</a>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonials-section">
+    <h2>LO QUE DICEN DE NOSOTROS</h2>
+    <div class="testimonials-container">
+        <div class="testimonial-image">
+            <img src="images/images/foto comentarios.png" alt="Testimonio1">
+        </div>
+        <div class="testimonial-slider-wrapper">
+            <div class="testimonial active"><p>"Excelente profesional, muy práctico y fácil de entender"</p><span>- Maria Baez</span></div>
+            <div class="testimonial"><p>"Práctico, interesante y con sentido"</p><span>- LZ Jesus</span></div>
+            <div class="testimonial"><p>"Excelente las clases muy entendibles"</p><span>- Ivan Figueroa Figueroa</span></div>
+            <div class="testimonial"><p>"Exelente experiencialo recomiendo muchomuy buena teoria y practicaexitos"</p><span>- Jayro Castillo</span></div>
+            <div class="testimonial"><p>"Curso muy interesante, práctico y de mucha utilidad"</p><span>- Lizandro Nicolás Meza Alpaca</span></div>
+            <div class="testimonial"><p>"Es un buen profesor y buen doctor con mucha paciencia"</p><span>- Jenny Caceres </span></div>
+            <div class="testimonial"><p>"Dinámico con buenos ejemplos.."</p><span>- Alex Garcia</span></div>
+            <div class="testimonial"><p>"Excelente tema. lo recomiendo para poder tratar a nuestro paciente."</p><span>- Victor Villafuerte</span></div>
+            <div class="testimonial"><p>"Muy bueno el curso bastante didactico,facil de aprender."</p><span>- Gloria Samame Correa</span></div>
+            <div class="testimonial"><p>"Quiero recomendar el curso de Quiropráctica que se realiza en cix felicidades esperamos ka 2da parte"</p><span>- Ricardo Leon Seclen.</span></div>
+            <div class="testimonial"><p>"Interesante , no soy de la rama de salud , pero es una buena introducción,  entendible,  didáctico y practico , espero la siguiente convocatoria para participar , recomendado"</p><span>- Roberth Isc</span></div>
+            <div class="testimonial"><p>"Super recomendado muy instructivo el curso satisfecha de la practicas y manipulaciónes gracias por compartir conocimientos"</p><span>- Roger Pérez </span></div>
+            <div class="testimonial"><p>"Muy contento con su manera práctica de enseñar, nos hace participar a todos, es muy claro en su explicación"</p><span>- Lizandro Nicolás Meza Alpaca</span></div>
+            <div class="testimonial"><p>"Es un buen profesor y buen doctor con mucha paciencia"</p><span>- Jenny Caceres </span></div>
+            <div class="testimonial"><p>"Agradezco al profesor Esmith por su estupenda clase de Quiropraxia, muy didáctico y práctico, salgo satisfecho y más claro de este ciencia"</p><span>- Miguel Infantes Lazabara </span></div>
+            <div class="testimonial"><p>"Fue un cursó espectacular pues el maestro se dejó entender muy práctico y hace el curso muy interesante y sencillo de aprender, Dios le bendiga y siga adelante ayudándonos a mucha gente con problemas de salud"</p><span>- Evangelista Oliva Garcia</span></div>
+        </div>
+    </div>
+    <div class="testimonial-buttons">
+    <button class="prev-btn">←</button>
+    <button class="next-btn">→</button>
+    </div>
+    <script src="js/testimonio.js"></script>
+</section>
+<!-- GALERÍA DE CURSOS -->
+<section class="course-gallery-section">
+    <h2>FOTOS DEL CURSO</h2>
+    <p class="subtitle">Galería</p>
+    <div class="course-gallery">
+        <img src="images/images/galeria1.jpeg" alt="Foto curso 1">
+        <img src="images/images/galeria2.jpeg" alt="Foto curso 2">
+        <img src="images/images/galeria3.jpeg" alt="Foto curso 3">
+    </div>
+    <div class="gallery-button"><a href="galeria-completa.html" class="btn-gallery">Ver galería</a></div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+    <h2>PREGUNTAS FRECUENTES</h2>
+    <div class="faq-item"><button class="faq-question">¿Cómo puede el Método Ore mejorar su práctica clínica?</button><div class="faq-answer"><p>El Método Ore proporciona técnicas manuales precisas y protocolos de tratamiento que pueden optimizar tus resultados clínicos.</p></div></div>
+    <div class="faq-item"><button class="faq-question">¿Para quién es este curso?</button><div class="faq-answer"><p>Está diseñado para fisioterapeutas, terapeutas manuales, osteópatas y profesionales de la salud.</p></div></div>
+    <div class="faq-item"><button class="faq-question">¿Cuál es la diferencia entre los tres cursos?</button><div class="faq-answer"><p>Cada curso aborda diferentes niveles de profundidad.</p></div></div>
+    <div class="faq-item"><button class="faq-question">¿Cómo se enseñan las técnicas en el Módulo Práctico?</button><div class="faq-answer"><p>Parte de la terapia manual ortopédica respetando los principios de rehabilitación.</p></div></div>
+    <div class="faq-item"><button class="faq-question">¿El curso es adecuado para principiantes?</button><div class="faq-answer"><p>Sí, aunque se recomienda tener nociones básicas de anatomía.</p></div></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+        <h2>MÉTODO ORE</h2>
+        <div class="footer-line"></div>
+        <div class="footer-content">
+            <div class="footer-center"><p><strong>Email:</strong> orerodriguezesmithsergio@gmail.com</p><p><strong>Celular:</strong> +51 978 820 283</p></div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=100085425810754&sk=photos" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/esmith_ore?igsh=bno5Nm5yMGZrcXE2" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/@esmithore?si=nHZGvyjGUQ1zmDjZ" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        <p class="footer-copy">&copy; 2025 Esmith Ore. Todos los derechos reservados.</p>
+    </footer>
+
+<!-- ================= Firebase + Auth ================= -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBx5NiszA3HqLg7NOMh10fmWU8Mct0pSCM",
+    authDomain: "mi-web-metodoore.firebaseapp.com",
+    projectId: "mi-web-metodoore",
+    storageBucket: "mi-web-metodoore.firebasestorage.app",
+    messagingSenderId: "620792207915",
+    appId: "1:620792207915:web:20451d3717cb69f495e86e",
+    measurementId: "G-430FWTPKK8"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>

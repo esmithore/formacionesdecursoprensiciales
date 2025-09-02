@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comunidad - Cursos</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="comunidad.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <h1>APERTURA <span>DEL</span></h1>
+      <h1>MÉTODO <span>ADJUSTER</span></h1>
+      <p>intra-articular pressure change</p>
+    </div>
+
+    <!-- Botón hamburguesa -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-label">
+      <img src="images/images/menu.png" class="menu-icon" alt="Menú">
+    </label>
+
+    <!-- Navegación -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#cursos">Los Cursos</a></li>
+        <li><button class="btn-acceso"><i class="fa-solid fa-right-to-bracket"></i> Acceso</button></li>
+        <li><button class="btn-registro"><i class="fa-solid fa-user-plus"></i> Registro</button></li>
+        <li><a href="comunidad.html">Comunidad</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="comunidad">
+    <h2>Comunidad - Cursos Disponibles</h2>
+
+    <div class="cursos-container">
+
+      <!-- Curso 1 -->
+      <div class="curso-card">
+        <img src="images/images/curso 1.jpeg" alt="Curso de Maniobras de Alta Velocidad"/>
+        <div class="info">
+          <h3>Curso Maniobras de Alta Velocidad en Articulaciones Periféricas</h3>
+          <p>Instructor: <b>Esmith Ore</b></p>
+          <p>Tipo: Curso Presencial</p>
+          <p>Fecha: 13 y 14 Set 2025 - 10:00 AM</p>
+          <p>Ubicación: Lima, Perú</p>
+
+          <!-- Precios -->
+          <p class="precio-preventa" style="display:none;">S/ 550</p>
+          <p class="precio" style="display:none;">S/ 700</p>
+
+          <!-- Countdown -->
+          <div class="countdown" data-fecha="2025-09-13T10:00:00"></div>
+
+          <div class="card-buttons">
+            <button class="btn-buy" onclick="abrirPago('Curso de Maniobras de Alta Velocidad')">Comprar</button>
+            <button class="btn-book" onclick="reservarWhatsApp('Curso de Maniobras de Alta Velocidad')">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curso 2 -->
+      <div class="curso-card">
+        <img src="images/images/curso2.jpeg" alt="Curso de Puntos Gatillos Miofasciales"/>
+        <div class="info">
+          <h3>Curso de Formación de Puntos Gatillos Miofasciales (PGM)</h3>
+          <p>Instructor: <b>Esmith Ore</b></p>
+          <p>Tipo: Curso Presencial</p>
+          <p>Fecha: 12 Oct 2025 - 10:00 AM</p>
+          <p>Ubicación: Lima, Perú</p>
+
+          <!-- Precios -->
+          <p class="precio-preventa" style="display:none;">S/ 300</p>
+          <p class="precio" style="display:none;">S/ 350</p>
+
+          <!-- Countdown -->
+          <div class="countdown" data-fecha="2025-10-12T10:00:00"></div>
+
+          <div class="card-buttons">
+            <button class="btn-buy" onclick="abrirPago('Curso de Puntos Gatillos Miofasciales')">Comprar</button>
+            <button class="btn-book" onclick="reservarWhatsApp('Curso de Puntos Gatillos Miofasciales')">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curso 3 -->
+      <div class="curso-card">
+        <img src="images/images/curso3.jpeg" alt="Curso Método Adjuster"/>
+        <div class="info">
+          <h3>Curso Formación de Maniobras de Alta Velocidad en Columna Vertebral - Método Adjuster</h3>
+          <p>Instructor: <b>Esmith Ore</b></p>
+          <p>Tipo: Curso Presencial</p>
+          <p>Fecha: 28 Set 2025 - 10:00 AM</p>
+          <p>Ubicación: Cusco, Perú</p>
+
+          <!-- Precios -->
+          <p class="precio-preventa" style="display:none;">S/ 300</p>
+          <p class="precio" style="display:none;">S/ 350</p>
+
+          <!-- Countdown -->
+          <div class="countdown" data-fecha="2025-09-28T10:00:00"></div>
+
+          <div class="card-buttons">
+            <button class="btn-buy" onclick="abrirPago('Curso Método Adjuster')">Comprar</button>
+            <button class="btn-book" onclick="reservarWhatsApp('Curso Método Adjuster')">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Toast -->
+  <div id="toast">Número copiado ✅</div>
+
+  <!-- Modal de Pago -->
+  <div id="modalPago" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarPago()">&times;</span>
+      <h2 id="tituloCurso">Selecciona un método de pago</h2>
+
+      <div class="metodos-pago">
+        <button onclick="copiarNumero('932319559', this)">
+          <i class="fa-solid fa-mobile-screen-button"></i> Yape
+        </button>
+        <button onclick="copiarNumero('932319559', this)">
+          <i class="fa-solid fa-qrcode"></i> Plin
+        </button>
+        <button onclick="copiarLocal('197179850238004', this)">
+          <i class="fa-solid fa-building-columns"></i> BCP Local
+        </button>
+        <button onclick="copiarInterbancario('00219717985023800459', this)">
+          <i class="fa-solid fa-building-columns"></i> BCP Interbancario
+        </button>
+        <button onclick="copiarLocal('001108320200666899', this)">
+          <i class="fa-solid fa-building-columns"></i> BBVA Local
+        </button>
+        <button onclick="copiarInterbancario('01183200020066689936', this)">
+          <i class="fa-solid fa-building-columns"></i> BBVA Interbancario
+        </button>
+      </div>
+
+      <div class="qrs">
+        <div>
+          <img src="images/images/qr whas.jpeg" alt="QR Yape"/>
+          <p>Yape</p>
+        </div>
+        <div>
+          <img src="images/images/qr plin.jpeg" alt="QR Plin"/>
+          <p>Plin</p>
+        </div>
+      </div>
+    </div>
+    <div id="copyNotice" class="copy-notice" hidden>
+    <span id="copyText"></span>
+  <button type="button" class="copy-close" onclick="hideCopyNotice()">✖</button>
+    </div>
+  </div>
+
+<script src="comunidad.js"></script>
+</body>
+</html>

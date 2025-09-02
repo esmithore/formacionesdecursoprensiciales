@@ -1,0 +1,300 @@
+/* -------------------------
+   Página Comunidad
+-------------------------- */
+* { box-sizing: border-box; }
+body {
+  font-family: Arial, sans-serif;
+  background: #000;
+  margin: 0;
+  padding-bottom: 120px;  /* Agregado para que el contenido no se tape con el banner */
+  /* el padding-bottom lo gestiona JS cuando el banner está fijo */
+}
+
+.comunidad {
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.comunidad h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+/* =========================
+   GRID DE CURSOS
+========================= */
+.cursos-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.curso-card {
+  background-color: #222;
+  width: calc(33% - 20px);
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  padding: 12px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.curso-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+}
+
+/* Imágenes completas (no recortar) */
+.curso-card img {
+  width: 100%;
+  height: 260px;       /* alto consistente */
+  object-fit: contain; /* muestra la imagen completa */
+  background: #000;    /* relleno elegante para bandas */
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+/* Contenido */
+.curso-card .info { position: relative; z-index: 1; }
+
+.curso-card h3 {
+  font-size: 1.1rem;
+  line-height: 1.35;
+  margin-bottom: .5rem;
+  color: #fff;
+}
+
+.curso-card p {
+  font-size: .95rem;
+  color: #bbb;
+  margin: .28rem 0;
+}
+
+/* Precio en bloque (no flotante) */
+.precio,
+.precio-preventa {
+  position: static;
+  background: #2b2b2b;
+  color: #fff;
+  padding: 8px 10px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* =========================
+   BOTONES DE CURSO
+========================= */
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: .6rem;
+  margin-top: 1rem;
+}
+
+.card-buttons button {
+  flex: 1;
+  padding: .7rem .9rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform .2s, background .3s, box-shadow .2s;
+}
+.card-buttons button:active { transform: scale(.98); }
+
+.btn-buy  { background: #27ae60; color:#fff; }
+.btn-book { background: #3498db; color:#fff; }
+.btn-buy:hover  { background:#219150; box-shadow:0 6px 14px rgba(39,174,96,.35); }
+.btn-book:hover { background:#2a7dbe; box-shadow:0 6px 14px rgba(52,152,219,.35); }
+
+/* Feedback verde temporal en botón copiado */
+.btn-copiado {
+  background: #2ecc71 !important;
+  color: #fff !important;
+}
+
+/* Countdown */
+.countdown {
+  margin-top: .6rem;
+  font-size: .9rem;
+  font-weight: bold;
+  color: #e67e22;
+}
+
+/* =========================
+   MODAL DE PAGO (encima de todo)
+========================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 3000;          /* por encima del banner y avisos */
+  inset: 0;
+  background: rgba(240, 236, 236, 0.6);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn .3s ease-in-out;
+}
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  width: min(420px, 92vw);
+  text-align: center;
+  box-shadow: 0 10px 26px rgba(0,0,0,.45);
+  position: relative;
+}
+.modal-content h2 {
+  margin-bottom: 10px;
+  font-size: 1.35rem;
+  color: #f7eded;
+}
+.close {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  transition: .2s;
+}
+.close:hover { color:#000; }
+
+/* =========================
+   BOTONES DE PAGO
+========================= */
+.metodos-pago { margin-top: 1rem; }
+.metodos-pago button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 800;
+  transition: transform .2s, background .3s;
+  color: #fff;
+}
+.metodos-pago i { font-size: 18px; }
+.metodos-pago button:hover { transform: translateY(-2px); }
+
+.metodos-pago button:nth-child(1){ background:#8000ff; }   /* Yape */
+.metodos-pago button:nth-child(1):hover{ background:#5a00b3; }
+.metodos-pago button:nth-child(2){ background:#00b894; }   /* Plin */
+.metodos-pago button:nth-child(2):hover{ background:#00856b; }
+.metodos-pago button:nth-child(3){ background:#ff9800; }   /* BCP local */
+.metodos-pago button:nth-child(3):hover{ background:#e68900; }
+.metodos-pago button:nth-child(4){ background:#c0440b; }   /* BCP interb */
+.metodos-pago button:nth-child(4):hover{ background:#a6390b; }
+.metodos-pago button:nth-child(5){ background:#ff9800; }   /* BBVA local */
+.metodos-pago button:nth-child(5):hover{ background:#e68900; }
+.metodos-pago button:nth-child(6){ background:#c0440b; }   /* BBVA interb */
+.metodos-pago button:nth-child(6):hover{ background:#a6390b; }
+
+/* =========================
+   QR
+========================= */
+.qrs {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+  gap: 1rem;
+}
+.qrs div { text-align: center; }
+.qrs img {
+  width: 120px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  padding: 6px;
+}
+
+/* Aviso de copiado dentro del modal (debajo de QR) */
+.copy-notice[hidden] { display: none !important; }
+
+.copy-notice {
+  margin: 12px auto 0;
+  width: 100%;
+  max-width: 420px;
+  background: #f4f8ff;
+  color: #1f3b57;
+  border: 1px solid #cfe0ff;
+  border-radius: 12px;
+  padding: 12px 48px 12px 14px; /* espacio para el botón ✖ */
+  font-size: 14px;
+  font-weight: 700;
+  position: relative;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+
+.copy-close {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #1f3b57;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: .8;
+}
+.copy-close:hover { opacity: 1; }
+
+/* =========================
+   TOAST
+========================= */
+#toast {
+  visibility: hidden;
+  min-width: 200px;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 12px 14px;
+  position: fixed;
+  z-index: 2500;     /* debajo del modal; encima del banner */
+  left: 50%;
+  bottom: 30px;
+  font-size: 15px;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity .5s, bottom .5s, visibility .5s;
+}
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
+}
+
+
+
+/* =========================
+   ANIMACIÓN
+========================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* 📱 En móviles: no fijo, apilado */
+@media (max-width: 1024px) {
+  .curso-card { width: calc(50% - 20px); }
+}
+@media (max-width: 768px) {
+  .curso-card { width: 100%; }
+  .curso-card img { height: 220px; }
+
+}
+
