@@ -293,40 +293,73 @@ body {
 /* =======================
    🔹 FOOTER
 ======================= */
+/* Estilo general del pie de página */
 .footer {
     background-color: #000;
     color: #fff;
-    text-align: center;
-    padding: 20px;
+    padding: 20px 0;
     position: relative;
     bottom: 0;
     width: 100%;
+    text-align: center;
 }
 
+/* Estilos para el título */
+.footer h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #fff;
+    padding-bottom: 10px;
+}
+
+/* Línea separadora roja */
 .footer-line {
-    border-top: 2px solid red;
-    margin: 10px 0;
+    width: 80%;
+    margin: 10px auto;
+    border-bottom: 2px solid red; /* Línea roja */
 }
 
+/* Contenedor principal de la información */
 .footer-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 5px 20px; /* Menos espacio entre los elementos */
     margin-bottom: 10px;
 }
 
-.footer-center {
-    text-align: left;
+/* Estilos para los enlaces sociales (a la izquierda) */
+.social-links {
+    display: flex;
+    gap: 10px; /* Reducido el espacio entre íconos */
+    justify-content: flex-start;
 }
 
 .social-links a {
     color: #fff;
-    margin: 0 10px;
-    font-size: 1.5rem;
+    font-size: 20px;
+    text-decoration: none;
 }
 
-.footer-copy {
-    font-size: 0.9rem;
+.social-links a:hover {
+    color: #ff0000; /* Cambia el color cuando pasas el cursor */
 }
+
+/* Estilos para la información de contacto (a la derecha) */
+.footer-contact {
+    text-align: right;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+}
+
+/* Estilo para el texto de derechos reservados */
+.footer-copy {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
 /* =======================
    🔹 INTRO / VIDEO
 ======================= */
