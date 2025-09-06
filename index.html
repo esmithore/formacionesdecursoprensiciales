@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="contador.js" defer></script>
     <script src="javi.js" defer></script>
-    <script src="index.js"></script>
+
 </head>
 <body>
 
@@ -32,56 +32,10 @@
         <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="#cursos">Los Cursos</a></li>
-            <li><button class="btn-acceso"><i class="fa-solid fa-right-to-bracket"></i> Acceso</button></li>
-            <li><button class="btn-registro"><i class="fa-solid fa-user-plus"></i> Registro</button></li>
             <li><a href="comunidad.html">Comunidad</a></li>
-            <!-- 🔹 Botón Logout (oculto hasta login) -->
-        <li><button id="btnLogout" style="display:none;">Cerrar sesión</button></li>
         </ul>
     </nav>
 </header>
-
-<!-- ================= MODAL ACCESO ================= -->
-<div id="modal-acceso" class="modal">
-    <div class="modal-content">
-        <span class="close close-acceso">&times;</span>
-        <h2>Iniciar Sesión</h2>
-        <form id="form-login" class="formulario" method="POST" action="login.js">
-            <input type="email" name="email" placeholder="Correo electrónico" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit" class="btn-ingresar">Ingresar</button>
-        </form>
-        <p>¿No tienes cuenta? <a href="#" id="openRegistro">Regístrate aquí</a></p>
-    </div>
-</div>
-
-<!-- ================= MODAL REGISTRO ================= -->
-<div id="modal-registro" class="modal">
-    <div class="modal-content">
-        <span class="close close-registro">&times;</span>
-        <h2>Registro</h2>
-        <form id="form-register" class="formulario" method="POST" action="registro.js">
-            <input type="text" name="nombre" placeholder="Nombre completo" required>
-            <input type="email" name="email" placeholder="Correo electrónico" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit" class="btn-registrar">Registrarse</button>
-        </form>
-        <p>¿Ya tienes cuenta? <a href="#" id="openAcceso">Inicia sesión aquí</a></p>
-    </div>
-</div>
-
-<!-- 🔹 Bloque Mi Cuenta -->
-<section id="mi-cuenta" style="display:none; margin: 24px 0;">
-  <h2>Mi cuenta</h2>
-  <p id="cuentaInfo"></p>
-</section>
-
-<!-- 🔹 Panel Admin -->
-<section id="panel-admin" style="display:none; margin: 24px 0;">
-  <h2>Panel de registros</h2>
-  <p>Total de usuarios registrados: <strong id="totalUsers">–</strong></p>
-  <button id="btnExportCsv">Exportar CSV</button>
-</section>
 
 <!-- HERO -->
 <main class="hero">
@@ -124,7 +78,7 @@
   <p>No busques la transversalidad. Conviértete en un profesional vertical.</p>
   <div class="video-container">
     <iframe 
-        src="https://www.youtube.com/embed/iN2RqfXGlNE?si=7XMvkEr-3J7-Fy1i" 
+        src="https://www.youtube.com/embed/9hz04EVRwiw" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen>
@@ -141,7 +95,7 @@
         <div class="course">
             <div class="course-img"><img src="images/images/curso 1.jpeg" alt="Curso Maniobras HV"></div>
             <div class="course-info">
-                <h3>Curso Maniobras de Alta Velocidad en Articulaciones Periféricas-Mètodo Adjuster</h3>
+                <h3>Curso Maniobras de Alta Velocidad en Articulaciones Periféricas</h3>
                 <p class="highlight">Expande tu destreza en la manipulación de articulaciones periféricas</p>
                 <p>Especialízate en técnicas avanzadas de maniobras de alta velocidad para las articulaciones periféricas. Este curso te ayudará a perfeccionar tus habilidades y brindar un tratamiento más efectivo y seguro.</p>
             </div>
@@ -249,30 +203,8 @@
     <p class="footer-copy">&copy; 2025 Esmith Ore. Todos los derechos reservados.</p>
 </footer>
 
-<!-- ================= Firebase + Auth ================= -->
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBx5NiszA3HqLg7NOMh10fmWU8Mct0pSCM",
-    authDomain: "mi-web-metodoore.firebaseapp.com",
-    projectId: "mi-web-metodoore",
-    storageBucket: "mi-web-metodoore.firebasestorage.app",
-    messagingSenderId: "620792207915",
-    appId: "1:620792207915:web:20451d3717cb69f495e86e",
-    measurementId: "G-430FWTPKK8"
-  };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
 
 
 
