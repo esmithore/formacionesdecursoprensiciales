@@ -1,7 +1,13 @@
 {
   "hosting": {
-    "public": "dist",
-    "ignore": ["**/.*", "**/node_modules/**"],
-    "rewrites": [{ "source": "**", "destination": "/index.html" }]
+    "public": "public",  // Cambia 'public' al nombre de tu carpeta con los archivos estáticos
+    "rewrites": [
+      {
+        "source": "/**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
+
+
