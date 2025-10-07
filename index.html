@@ -1,207 +1,170 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Método ORE - Esmith Ore</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="contador.js" defer></script>
-    <script src="javi.js" defer></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comunidad - Cursos</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="comunidad.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
-
-<!-- HEADER -->
-<header class="header">
+  
+  <!-- HEADER -->
+  <header class="header">
     <div class="logo">
-        <h1>APERTURA <span>DEL</span></h1>
-        <h1>MÉTODO <span>ADJUSTER</span></h1>
-        <p>intra-articular pressure change</p>
+      <h1>APERTURA <span>DEL</span></h1>
+      <h1>MÉTODO <span>ADJUSTER</span></h1>
+      <p>intra-articular pressure change</p>
     </div>
 
     <!-- Botón hamburguesa -->
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="menu-label">
-        <img src="images/images/menu.png" class="menu-icon" alt="Menú">
+      <img src="images/images/menu.png" class="menu-icon" alt="Menú">
     </label>
 
     <!-- Navegación -->
     <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="#cursos">Los Cursos</a></li>
-            <li><a href="comunidad.html">Comunidad</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#cursos">Los Cursos</a></li>
+        <li><a href="comunidad.html">Comunidad</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
+  
+  <section class="comunidad">
+    <h2>Comunidad - Cursos Disponibles</h2>
 
-<!-- HERO -->
-<main class="hero">
-    <!-- Texto -->
-    <div class="hero-text">
-        <h1>
-            FORMACIÓN DE MANIOBRAS <br>
-            DE ALTA VELOCIDAD <br>
-            <span class="resaltado">EN COLUMNA VERTEBRAL (HVLLA)</span>
-        </h1>
-        <p>MÉTODO ADJUSTER INTRA-ARTICULAR PRESSURE CHANGE</p>
-        <a href="#cursos" class="btn">Ver Cursos</a>
+    <div class="cursos-container">
 
-        <!-- Redes sociales -->
-        <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=100085425810754&sk=photos" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/esmith_ore?igsh=bno5Nm5yMGZrcXE2" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@esmithore_fisio_?_t=ZS-8zK4ZFel7vl&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://youtube.com/@esmithore?si=nHZGvyjGUQ1zmDjZ" target="_blank"><i class="fab fa-youtube"></i></a>
+      <!-- Curso 1 -->
+      <div class="curso-card">
+        <img src="images/images/curso nuevo.jpeg" alt="Curso de Maniobras de Alta Velocidad"/>
+        <div class="info">
+          <h3>Formaciòn de maniobras de alta velocidad en columna vertebral(HVLLA)</h3>
+          <p>Instructor: <b>Esmith Ore</b></p>
+          <p>Tipo: Curso Presencial</p>
+          <p>Fecha: 25 y 26 Oct 2025 - 10:00 AM</p>
+          <p>Ubicación: Lima, Perú</p>
+
+          <!-- Precios -->
+          <p class="precio-preventa" style="display:none;">S/ 550</p>
+          <p class="precio" style="display:none;">S/ 700</p>
+
+          <!-- Countdown -->
+          <div class="countdown" data-fecha="2025-10-25T10:00:00"></div>
+
+          <div class="card-buttons">
+            <button class="btn-buy" onclick="abrirPago('Curso de Maniobras de Alta Velocidad')">Comprar</button>
+            <button class="btn-book" onclick="reservarWhatsApp('Curso de Maniobras de Alta Velocidad')">Reservar</button>
+          </div>
         </div>
+      </div>
+
+      <!-- Curso 2 -->
+      <div class="curso-card">
+        <img src="images/images/curso2.jpeg" alt="Curso de Puntos Gatillos Miofasciales"/>
+        <div class="info">
+          <h3>Curso de Tècnicas de Liberaciòn de Puntos Gatillos Miofasciales (PGM)</h3>
+          <p>Instructor: <b>Esmith Ore</b></p>
+          <p>Tipo: Curso Presencial</p>
+          <p>Fecha: 12 Oct 2025 - 10:00 AM</p>
+          <p>Ubicación: Lima, Perú</p>
+
+          <!-- Precios -->
+          <p class="precio-preventa" style="display:none;">S/ 300</p>
+          <p class="precio" style="display:none;">S/ 350</p>
+
+          <!-- Countdown -->
+          <div class="countdown" data-fecha="2025-10-12T10:00:00"></div>
+
+          <div class="card-buttons">
+            <button class="btn-buy" onclick="abrirPago('Curso de Puntos Gatillos Miofasciales')">Comprar</button>
+            <button class="btn-book" onclick="reservarWhatsApp('Curso de Puntos Gatillos Miofasciales')">Reservar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curso 3 -->
+      <div class="curso-card">
+        <img src="images/images/curso3.jpeg" alt="Curso Método Adjuster"/>
+        <div class="info">
+          <h3>Curso Formación de Maniobras de Alta Velocidad en Articulaciones Periféricas - Método Adjuster</h3>
+          <p>Instructor: <b>Esmith Ore</b></p>
+          <p>Tipo: Curso Presencial</p>
+          <p>Fecha: 09 Dic 2025 - 10:00 AM</p>
+          <p>Ubicación: Cusco, Perú</p>
+
+          <!-- Precios -->
+          <p class="precio-preventa" style="display:none;">S/ 300</p>
+          <p class="precio" style="display:none;">S/ 350</p>
+
+          <!-- Countdown -->
+          <div class="countdown" data-fecha="2025-12-09T10:00:00"></div>
+
+          <div class="card-buttons">
+            <button class="btn-buy" onclick="abrirPago('Curso Método Adjuster')">Comprar</button>
+            <button class="btn-book" onclick="reservarWhatsApp('Curso Método Adjuster')">Reservar</button>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Imagen de marca de agua -->
-    <div class="hero-image">
-        <img src="images/images/principal.jpeg" alt="Método Adjuster">
+  <!-- Toast -->
+  <div id="toast">Número copiado ✅</div>
+
+  <!-- Modal de Pago -->
+  <div id="modalPago" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarPago()">&times;</span>
+      <h2 id="tituloCurso">Selecciona un método de pago</h2>
+
+      <div class="metodos-pago">
+        <button onclick="copiarNumero('932319559', this)">
+          <i class="fa-solid fa-mobile-screen-button"></i> Yape
+        </button>
+        <button onclick="copiarNumero('932319559', this)">
+          <i class="fa-solid fa-qrcode"></i> Plin
+        </button>
+        <button onclick="copiarLocal('197179850238004', this)">
+          <i class="fa-solid fa-building-columns"></i> BCP Local
+        </button>
+        <button onclick="copiarInterbancario('00219717985023800459', this)">
+          <i class="fa-solid fa-building-columns"></i> BCP Interbancario
+        </button>
+        <button onclick="copiarLocal('001108320200666899', this)">
+          <i class="fa-solid fa-building-columns"></i> BBVA Local
+        </button>
+        <button onclick="copiarInterbancario('01183200020066689936', this)">
+          <i class="fa-solid fa-building-columns"></i> BBVA Interbancario
+        </button>
+      </div>
+
+      <div class="qrs">
+        <div>
+          <img src="images/images/qr whas.jpeg" alt="QR Yape"/>
+          <p>Yape</p>
+        </div>
+        <div>
+          <img src="images/images/qr plin.jpeg" alt="QR Plin"/>
+          <p>Plin</p>
+        </div>
+      </div>
     </div>
-</main>
-
-<!-- CONTADORES -->
-<section class="stats">
-    <div class="stat"><h2 class="counter" data-target="4000">0</h2><p>PROFESIONALES CAPACITADOS</p></div>
-    <div class="stat"><h2 class="counter" data-target="300">0</h2><p>CURSOS PRESENCIALES</p></div>
-    <div class="stat"><h2 class="counter" data-target="10">0</h2><p>AÑOS DE EXPERIENCIA</p></div>
-    <div class="stat"><h2 class="counter" data-target="3500">0</h2><p>HORAS DE CURSO</p></div>
-</section>
-
-<!-- MÉTODO ORE -->
-<section class="metodo">
-  <h2>EL MÉTODO ADJUSTER</h2>
-  <p>No busques la transversalidad. Conviértete en un profesional vertical.</p>
-  <div class="video-container">
-    <iframe 
-        src="https://www.youtube.com/embed/iN2RqfXGlNE?si=7XMvkEr-3J7-Fy1i"
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-    </iframe>
+    <div id="copyNotice" class="copy-notice" hidden>
+    <span id="copyText"></span>
+  <button type="button" class="copy-close" onclick="hideCopyNotice()">✖</button>
+    </div>
   </div>
-</section>
 
-<!-- CURSOS -->
-<section id="cursos" class="courses">
-    <h2>MÉTODO ADJUSTER</h2>
-    <span class="subtitle">LOS CURSOS</span>
-    <div class="course-list">
-        <!-- Curso 1 -->
-        <div class="course">
-            <div class="course-img"><img src="images/images/curso 1.jpeg" alt="Curso Maniobras HV"></div>
-            <div class="course-info">
-                <h3>Curso Maniobras de Alta Velocidad en Articulaciones Periféricas</h3>
-                <p class="highlight">Expande tu destreza en la manipulación de articulaciones periféricas</p>
-                <p>Especialízate en técnicas avanzadas de maniobras de alta velocidad para las articulaciones periféricas. Este curso te ayudará a perfeccionar tus habilidades y brindar un tratamiento más efectivo y seguro.</p>
-            </div>
-        </div>
-        <!-- Curso 2 -->
-        <div class="course reverse">
-            <div class="course-img"><img src="images/images/curso2.jpeg" alt="Curso Puntos Gatillo"></div>
-            <div class="course-info">
-                <h3>Curso de Formación de Puntos Gatillos Miofasciales (PGM)</h3>
-                <p class="highlight">Domina las técnicas de tratamiento de puntos gatillo</p>
-                <p>Adquiere los conocimientos esenciales para tratar puntos gatillo miofasciales con eficacia. Este curso te proporciona herramientas prácticas para aliviar dolores musculares y mejorar la función del cuerpo humano.</p>
-            </div>
-        </div>
-        <!-- Curso 3 -->
-        <div class="course">
-            <div class="course-img"><img src="images/images/curso3.jpeg" alt="Método Adjuster"></div>
-            <div class="course-info">
-                <h3>Curso Formación de Maniobras de Alta Velocidad en Columna Vertebral - Método Adjuster</h3>
-                <p class="highlight">Avanza en tu técnica con el Método Adjuster</p>
-                <p>Aprende maniobras de alta velocidad especializadas para la columna vertebral, perfeccionando tus habilidades con el método Adjuster. Un curso que te brindará los conocimientos prácticos para mejorar tu enfoque terapéutico.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<script src="comunidad.js"></script>
+</body>
+</html>
 
-<!-- Comunidad -->
-<section class="comunidad">
-    <h2>ÚNETE A NUESTRA COMUNIDAD</h2>
-    <p>Forma parte de un grupo de profesionales comprometidos con la salud y la quiropraxia.</p>
-    <a href="comunidad.html" class="btn-primary">Ver Comunidad</a>
-</section>
-
-<!-- TESTIMONIOS -->
-<section class="testimonials-section">
-    <h2>LO QUE DICEN DE NOSOTROS</h2>
-    <div class="testimonials-container">
-        <div class="testimonial-image">
-            <img src="images/images/foto comentarios.png" alt="Testimonio1">
-        </div>
-        <div class="testimonial-slider-wrapper">
-            <div class="testimonial active"><p>"Excelente profesional, muy práctico y fácil de entender"</p><span>- Maria Baez</span></div>
-            <div class="testimonial"><p>"Práctico, interesante y con sentido"</p><span>- LZ Jesus</span></div>
-            <div class="testimonial"><p>"Excelente las clases muy entendibles"</p><span>- Ivan Figueroa Figueroa</span></div>
-            <div class="testimonial"><p>"Exelente experiencialo recomiendo muchomuy buena teoria y practicaexitos"</p><span>- Jayro Castillo</span></div>
-            <div class="testimonial"><p>"Curso muy interesante, práctico y de mucha utilidad"</p><span>- Lizandro Nicolás Meza Alpaca</span></div>
-            <div class="testimonial"><p>"Es un buen profesor y buen doctor con mucha paciencia"</p><span>- Jenny Caceres </span></div>
-            <div class="testimonial"><p>"Dinámico con buenos ejemplos.."</p><span>- Alex Garcia</span></div>
-            <div class="testimonial"><p>"Excelente tema. lo recomiendo para poder tratar a nuestro paciente."</p><span>- Victor Villafuerte</span></div>
-            <div class="testimonial"><p>"Muy bueno el curso bastante didactico,facil de aprender."</p><span>- Gloria Samame Correa</span></div>
-            <div class="testimonial"><p>"Quiero recomendar el curso de Quiropráctica que se realiza en cix felicidades esperamos ka 2da parte"</p><span>- Ricardo Leon Seclen.</span></div>
-            <div class="testimonial"><p>"Interesante , no soy de la rama de salud , pero es una buena introducción,  entendible,  didáctico y practico , espero la siguiente convocatoria para participar , recomendado"</p><span>- Roberth Isc</span></div>
-            <div class="testimonial"><p>"Super recomendado muy instructivo el curso satisfecha de la practicas y manipulaciónes gracias por compartir conocimientos"</p><span>- Roger Pérez </span></div>
-            <div class="testimonial"><p>"Muy contento con su manera práctica de enseñar, nos hace participar a todos, es muy claro en su explicación"</p><span>- Lizandro Nicolás Meza Alpaca</span></div>
-            <div class="testimonial"><p>"Es un buen profesor y buen doctor con mucha paciencia"</p><span>- Jenny Caceres </span></div>
-            <div class="testimonial"><p>"Agradezco al profesor Esmith por su estupenda clase de Quiropraxia, muy didáctico y práctico, salgo satisfecho y más claro de este ciencia"</p><span>- Miguel Infantes Lazabara </span></div>
-            <div class="testimonial"><p>"Fue un cursó espectacular pues el maestro se dejó entender muy práctico y hace el curso muy interesante y sencillo de aprender, Dios le bendiga y siga adelante ayudándonos a mucha gente con problemas de salud"</p><span>- Evangelista Oliva Garcia</span></div>
-        </div>
-    </div>
-    <div class="testimonial-buttons">
-    <button class="prev-btn">←</button>
-    <button class="next-btn">→</button>
-    </div>
-    <script src="js/testimonio.js"></script>
-</section>
-<!-- GALERÍA DE CURSOS -->
-<section class="course-gallery-section">
-    <h2>FOTOS DEL CURSO</h2>
-    <p class="subtitle">Galería</p>
-    <div class="course-gallery">
-        <img src="images/images/galeria1.jpeg" alt="Foto curso 1">
-        <img src="images/images/galeria2.jpeg" alt="Foto curso 2">
-        <img src="images/images/galeria3.jpeg" alt="Foto curso 3">
-    </div>
-    <div class="gallery-button"><a href="galeria-completa.html" class="btn-gallery">Ver galería</a></div>
-</section>
-
-<!-- FAQ -->
-<section class="faq-section">
-    <h2>PREGUNTAS FRECUENTES</h2>
-    <div class="faq-item"><button class="faq-question">¿Cómo puede el Método Adjuster mejorar su práctica clínica?</button><div class="faq-answer"><p>El Método Ore proporciona técnicas manuales precisas y protocolos de tratamiento que pueden optimizar tus resultados clínicos.</p></div></div>
-    <div class="faq-item"><button class="faq-question">¿Para quién es este curso?</button><div class="faq-answer"><p>Está diseñado para fisioterapeutas, terapeutas manuales, osteópatas y profesionales de la salud.</p></div></div>
-    <div class="faq-item"><button class="faq-question">¿Cuál es la diferencia entre los tres cursos?</button><div class="faq-answer"><p>Cada curso aborda diferentes niveles de profundidad.</p></div></div>
-    <div class="faq-item"><button class="faq-question">¿Cómo se enseñan las técnicas en el Módulo Práctico?</button><div class="faq-answer"><p>Parte de la terapia manual ortopédica respetando los principios de rehabilitación.</p></div></div>
-    <div class="faq-item"><button class="faq-question">¿El curso es adecuado para principiantes?</button><div class="faq-answer"><p>Sí, aunque se recomienda tener nociones básicas de anatomía.</p></div></div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-        <h2>MÉTODO ADJUSTER</h2>
-        <div class="footer-line"></div>
-    <div class="footer-content">
-        <!-- Redes sociales a la izquierda -->
-        <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=100085425810754&sk=photos" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/esmith_ore?igsh=bno5Nm5yMGZrcXE2" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/@esmithore?si=nHZGvyjGUQ1zmDjZ" target="_blank"><i class="fab fa-youtube"></i></a>
-        </div>
-        <!-- Información de contacto a la derecha -->
-        <div class="footer-contact">
-            <p><strong>Email:</strong> orerodriguezesmithsergio@gmail.com</p>
-            <p><strong>Celular:</strong> +51 978 820 283</p>
-        </div>
-    </div>
-    <!-- Derechos reservados al fondo y centrado -->
-    <p class="footer-copy">&copy; 2025 Esmith Ore. Todos los derechos reservados.</p>
-</footer>
 
 
 
