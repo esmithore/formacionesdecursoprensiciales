@@ -40,10 +40,10 @@
     <div class="cursos-container">
 
       <!-- Curso 1 -->
-      <div class="curso-card">
+      <div class="curso-card" id="curso1">
         <img src="images/images/curso nuevo.jpeg" alt="Curso de Maniobras de Alta Velocidad"/>
         <div class="info">
-          <h3>Formaciòn de maniobras de alta velocidad en columna vertebral(HVLLA)</h3>
+          <h3>Formación de maniobras de alta velocidad en columna vertebral (HVLLA)</h3>
           <p>Instructor: <b>Esmith Ore</b></p>
           <p>Tipo: Curso Presencial</p>
           <p>Fecha: 25 y 26 Oct 2025 - 10:00 AM</p>
@@ -52,6 +52,9 @@
           <!-- Precios -->
           <p class="precio-preventa" style="display:none;">S/ 550</p>
           <p class="precio" style="display:none;">S/ 700</p>
+
+          <!-- Evento Finalizado (mensaje dinámico) -->
+          <p id="mensajeFinalizadoCurso1" style="display:none; color:red; font-weight:bold;">El evento ha finalizado.</p>
 
           <!-- Countdown -->
           <div class="countdown" data-fecha="2025-10-25T10:00:00"></div>
@@ -64,10 +67,10 @@
       </div>
 
       <!-- Curso 2 -->
-      <div class="curso-card">
+      <div class="curso-card" id="curso2">
         <img src="images/images/curso2.jpeg" alt="Curso de Puntos Gatillos Miofasciales"/>
         <div class="info">
-          <h3>Curso de Tècnicas de Liberaciòn de Puntos Gatillos Miofasciales (PGM)</h3>
+          <h3>Curso de Técnicas de Liberación de Puntos Gatillos Miofasciales (PGM)</h3>
           <p>Instructor: <b>Esmith Ore</b></p>
           <p>Tipo: Curso Presencial</p>
           <p>Fecha: 12 Oct 2025 - 10:00 AM</p>
@@ -76,6 +79,9 @@
           <!-- Precios -->
           <p class="precio-preventa" style="display:none;">S/ 300</p>
           <p class="precio" style="display:none;">S/ 350</p>
+
+          <!-- Evento Finalizado (mensaje dinámico) -->
+          <p id="mensajeFinalizadoCurso2" style="display:none; color:red; font-weight:bold;">El evento ha finalizado.</p>
 
           <!-- Countdown -->
           <div class="countdown" data-fecha="2025-10-12T10:00:00"></div>
@@ -87,84 +93,42 @@
         </div>
       </div>
 
-      <!-- Curso 3 -->
-      <div class="curso-card">
-        <img src="images/images/curso3.jpeg" alt="Curso Método Adjuster"/>
+      <!-- Evento 30 Noviembre -->
+      <div class="curso-card" id="evento30Nov">
+        <img src="images/images/Curso V.jpeg" alt="Evento 30 Noviembre" />
         <div class="info">
-          <h3>Curso Formación de Maniobras de Alta Velocidad en Articulaciones Periféricas - Método Adjuster</h3>
+          <h3>Ultimo evento del año Curso de Maniobras de Alta Velocidad Columna Vertebral (Hvlla)</h3>
           <p>Instructor: <b>Esmith Ore</b></p>
-          <p>Tipo: Curso Presencial</p>
-          <p>Fecha: 09 Dic 2025 - 10:00 AM</p>
-          <p>Ubicación: Cusco, Perú</p>
+          <p>Tipo: Evento Presencial</p>
+          <p>Fecha: 30 Nov 2025 - 9:00 PM</p>
+          <p>Ubicación: Lima, Miraflores, Perú</p>
 
           <!-- Precios -->
           <p class="precio-preventa" style="display:none;">S/ 300</p>
           <p class="precio" style="display:none;">S/ 350</p>
 
+          <!-- Evento Finalizado (mensaje dinámico) -->
+          <p id="mensajeFinalizadoEvento30Nov" style="display:none; color:red; font-weight:bold;">El evento ha finalizado.</p>
+
           <!-- Countdown -->
-          <div class="countdown" data-fecha="2025-12-09T10:00:00"></div>
+          <div class="countdown" data-fecha="2025-11-30T21:00:00"></div>
 
           <div class="card-buttons">
-            <button class="btn-buy" onclick="abrirPago('Curso Método Adjuster')">Comprar</button>
-            <button class="btn-book" onclick="reservarWhatsApp('Curso Método Adjuster')">Reservar</button>
+            <button class="btn-buy" onclick="abrirPago('Evento Especial del 30 Noviembre')">Comprar</button>
+            <button class="btn-book" onclick="reservarWhatsApp('Evento Especial del 30 Noviembre')">Reservar</button>
           </div>
         </div>
       </div>
+
+    </div>
 
     </div>
   </section>
 
   <!-- Toast -->
   <div id="toast">Número copiado ✅</div>
+  <!-- Modal de Pago --> <div id="modalPago" class="modal"> <div class="modal-content"> <span class="close" onclick="cerrarPago()">&times;</span> <h2 id="tituloCurso">Selecciona un método de pago</h2> <div class="metodos-pago"> <button onclick="copiarNumero('932319559', this)"> <i class="fa-solid fa-mobile-screen-button"></i> Yape </button> <button onclick="copiarNumero('932319559', this)"> <i class="fa-solid fa-qrcode"></i> Plin </button> <button onclick="copiarLocal('197179850238004', this)"> <i class="fa-solid fa-building-columns"></i> BCP Local </button> <button onclick="copiarInterbancario('00219717985023800459', this)"> <i class="fa-solid fa-building-columns"></i> BCP Interbancario </button> <button onclick="copiarLocal('001108320200666899', this)"> <i class="fa-solid fa-building-columns"></i> BBVA Local </button> <button onclick="copiarInterbancario('01183200020066689936', this)"> <i class="fa-solid fa-building-columns"></i> BBVA Interbancario </button> </div> <div class="qrs"> <div> <img src="images/images/qr whas.jpeg" alt="QR Yape"/> <p>Yape</p> </div> <div> <img src="images/images/qr plin.jpeg" alt="QR Plin"/> <p>Plin</p> </div> </div> </div> <div id="copyNotice" class="copy-notice" hidden> <span id="copyText"></span> <button type="button" class="copy-close" onclick="hideCopyNotice()">✖</button> </div> </div>
 
-  <!-- Modal de Pago -->
-  <div id="modalPago" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="cerrarPago()">&times;</span>
-      <h2 id="tituloCurso">Selecciona un método de pago</h2>
-
-      <div class="metodos-pago">
-        <button onclick="copiarNumero('932319559', this)">
-          <i class="fa-solid fa-mobile-screen-button"></i> Yape
-        </button>
-        <button onclick="copiarNumero('932319559', this)">
-          <i class="fa-solid fa-qrcode"></i> Plin
-        </button>
-        <button onclick="copiarLocal('197179850238004', this)">
-          <i class="fa-solid fa-building-columns"></i> BCP Local
-        </button>
-        <button onclick="copiarInterbancario('00219717985023800459', this)">
-          <i class="fa-solid fa-building-columns"></i> BCP Interbancario
-        </button>
-        <button onclick="copiarLocal('001108320200666899', this)">
-          <i class="fa-solid fa-building-columns"></i> BBVA Local
-        </button>
-        <button onclick="copiarInterbancario('01183200020066689936', this)">
-          <i class="fa-solid fa-building-columns"></i> BBVA Interbancario
-        </button>
-      </div>
-
-      <div class="qrs">
-        <div>
-          <img src="images/images/qr whas.jpeg" alt="QR Yape"/>
-          <p>Yape</p>
-        </div>
-        <div>
-          <img src="images/images/qr plin.jpeg" alt="QR Plin"/>
-          <p>Plin</p>
-        </div>
-      </div>
-    </div>
-    <div id="copyNotice" class="copy-notice" hidden>
-    <span id="copyText"></span>
-  <button type="button" class="copy-close" onclick="hideCopyNotice()">✖</button>
-    </div>
-  </div>
-
-<script src="comunidad.js"></script>
+  <script src="comunidad.js"></script>
 </body>
 </html>
-
-
-
-
