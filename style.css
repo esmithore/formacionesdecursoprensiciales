@@ -140,7 +140,7 @@ body {
 }
 
 .hero-image img {
-    width: 700px;          /* Tamaño grande */
+    width: 380px;          /* Tamaño grande */
     height: auto;
     object-fit: cover;     /* Para que la imagen no se deforme */
 }
@@ -428,8 +428,8 @@ body {
 
 .testimonial-image {
     flex-shrink: 0;
-    width: 450px;  /* Tamaño de la imagen */
-    height: 450px; /* Tamaño de la imagen */
+    width: 380px;  /* Tamaño de la imagen */
+    height: 380px; /* Tamaño de la imagen */
     border: 5px solid red; /* Contorno rojo intenso */
     border-radius: 15px;
     overflow: hidden;
@@ -618,4 +618,5 @@ body {
     }
     .footer-right { text-align: center; margin-top: 10px; }
 }
+
 
