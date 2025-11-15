@@ -1,13 +1,14 @@
 /* =========================
    COUNTDOWN
 ========================= */
-function iniciarCuentaRegresiva(el, fechaFin) {
+function iniciarCuentaRegresiva(el, fechaFin, mensajeFinalizadoID) {
   function actualizar() {
     const ahora = Date.now();
     const distancia = fechaFin - ahora;
 
     if (distancia < 0) {
       el.textContent = "¡El curso ya empezó!";
+      document.getElementById(mensajeFinalizadoID).style.display = "block"; // Mostrar mensaje de evento finalizado
       return;
     }
 
@@ -27,13 +28,17 @@ document.addEventListener("DOMContentLoaded", () => {
   /* Iniciar Countdowns */
   document.querySelectorAll(".countdown").forEach(el => {
     const fecha = el.getAttribute("data-fecha");
-    if (fecha) iniciarCuentaRegresiva(el, new Date(fecha).getTime());
+    if (fecha) {
+      const cursoId = el.closest('.curso-card').id; // Obtener el ID del curso
+      const mensajeFinalizadoID = cursoId === "curso1" ? "mensajeFinalizadoCurso1" : "mensajeFinalizadoCurso2"; // ID de mensaje según el curso
+      iniciarCuentaRegresiva(el, new Date(fecha).getTime(), mensajeFinalizadoID);
+    }
   });
 
   /* Mostrar precios preventa vs regular */
   document.querySelectorAll(".curso-card").forEach(card => {
     const preventa = card.querySelector(".precio-preventa");
-    const regular  = card.querySelector(".precio");
+    const regular = card.querySelector(".precio");
     const cd = card.querySelector(".countdown");
     let fechaCurso = cd ? new Date(cd.getAttribute("data-fecha")) : null;
     const hoy = new Date();
@@ -41,17 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (preventa && regular) {
       if (fechaCurso && hoy < fechaCurso) {
         preventa.style.display = "block";
-        regular.style.display  = "none";
+        regular.style.display = "none";
       } else {
         preventa.style.display = "none";
-        regular.style.display  = "block";
+        regular.style.display = "block";
       }
     }
   });
-
   ajustarPaddingBanner();
   window.addEventListener("resize", ajustarPaddingBanner);
-
   /* Cerrar aviso global con botón ✖ (si existe) */
   const btnCerrar = document.getElementById("avisoCerrar");
   if (btnCerrar) btnCerrar.addEventListener("click", ocultarAviso);
@@ -64,9 +67,11 @@ function abrirPago(nombreCurso) {
   document.getElementById("tituloCurso").innerText = "Has elegido: " + nombreCurso;
   document.getElementById("modalPago").style.display = "flex";
 }
+
 function cerrarPago() {
   document.getElementById("modalPago").style.display = "none";
 }
+
 window.addEventListener("click", (e) => {
   const modal = document.getElementById("modalPago");
   if (e.target === modal) cerrarPago();
@@ -97,9 +102,10 @@ function copiarAlPortapapeles(texto) {
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
+
     return new Promise((resolve, reject) => {
       try {
-        document.execCommand('copy');
+        document.execCommand("copy");
         resolve();
       } catch (err) {
         reject(err);
@@ -131,11 +137,14 @@ let avisoTimeout;
 
 /* Muestra el aviso por 2 minutos */
 function showCopyNotice(texto, etiqueta) {
-  const box = document.getElementById('copyNotice');
-  const label = document.getElementById('copyText');
+  const box = document.getElementById("copyNotice");
+  const label = document.getElementById("copyText");
   if (!box || !label) return;
 
-  const msg = etiqueta ? `Copiado (${etiqueta}): ${texto}` : `Copiado: ${texto}`;
+  const msg = etiqueta
+    ? `Copiado (${etiqueta}): ${texto}`
+    : `Copiado: ${texto}`;
+
   label.textContent = msg;
 
   // Mostrar el aviso
@@ -149,7 +158,7 @@ function showCopyNotice(texto, etiqueta) {
 }
 
 function hideCopyNotice() {
-  const box = document.getElementById('copyNotice');
+  const box = document.getElementById("copyNotice");
   if (!box) return;
   box.hidden = true;
   clearTimeout(avisoTimeout);
@@ -163,8 +172,14 @@ function hideCopyNotice() {
 function _parseArgs(arg2, arg3) {
   let etiqueta = "";
   let btn = null;
-  if (typeof arg2 === "string") { etiqueta = arg2; btn = arg3 || null; }
-  else { btn = arg2 || null; }
+
+  if (typeof arg2 === "string") {
+    etiqueta = arg2;
+    btn = arg3 || null;
+  } else {
+    btn = arg2 || null;
+  }
+
   return { etiqueta, btn };
 }
 
@@ -176,6 +191,7 @@ function copiarNumero(numero, arg2, arg3) {
     showCopyNotice(numero, etiqueta);
   });
 }
+
 function copiarLocal(numero, arg2, arg3) {
   const { etiqueta, btn } = _parseArgs(arg2, arg3);
   copiarAlPortapapeles(numero).then(() => {
@@ -184,6 +200,7 @@ function copiarLocal(numero, arg2, arg3) {
     showCopyNotice(numero, etiqueta);
   });
 }
+
 function copiarInterbancario(numero, arg2, arg3) {
   const { etiqueta, btn } = _parseArgs(arg2, arg3);
   copiarAlPortapapeles(numero).then(() => {
@@ -220,10 +237,14 @@ function ajustarPaddingBanner() {
   }
 }
 
-/* Exponer funciones */
+/* =========================
+   Exponer funciones al window
+========================= */
 window.abrirPago = abrirPago;
 window.cerrarPago = cerrarPago;
 window.copiarNumero = copiarNumero;
 window.copiarLocal = copiarLocal;
 window.copiarInterbancario = copiarInterbancario;
 window.reservarWhatsApp = reservarWhatsApp;
+window.showCopyNotice = showCopyNotice;
+window.hideCopyNotice = hideCopyNotice;
