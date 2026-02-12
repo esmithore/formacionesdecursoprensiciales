@@ -1,64 +1,95 @@
+
 /* =========================
-   COUNTDOWN
+   COUNTDOWN NUMÉRICO PRO
+   (20 ENERO → 15 FEBRERO)
 ========================= */
-function iniciarCuentaRegresiva(el, fechaFin, mensajeFinalizadoID) {
+
+function iniciarCuentaRegresiva(contador, card) {
+
+  const diasEl = card.querySelector(".dias");
+  const horasEl = card.querySelector(".horas");
+  const minutosEl = card.querySelector(".minutos");
+  const segundosEl = card.querySelector(".segundos");
+
+  const fechaInicio = new Date("2026-01-20T00:00:00").getTime();
+  const fechaFin    = new Date("2026-02-15T23:59:59").getTime();
+
+  function animarNumero(el, valor) {
+    if (el.textContent !== valor) {
+      el.textContent = valor;
+      el.classList.remove("flip", "glow");
+      void el.offsetWidth;
+      el.classList.add("flip", "glow");
+    }
+  }
+
+  function resetear() {
+    animarNumero(diasEl, "00");
+    animarNumero(horasEl, "00");
+    animarNumero(minutosEl, "00");
+    animarNumero(segundosEl, "00");
+  }
+
   function actualizar() {
     const ahora = Date.now();
-    const distancia = fechaFin - ahora;
 
-    if (distancia < 0) {
-      el.textContent = "¡El curso ya empezó!";
-      document.getElementById(mensajeFinalizadoID).style.display = "block"; // Mostrar mensaje de evento finalizado
+    /* 🔒 FINALIZADO */
+    if (ahora >= fechaFin) {
+      contador.classList.remove("urgente");
+      contador.classList.add("locked");
+      resetear();
       return;
     }
 
-    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+    /* ⏳ AÚN NO EMPIEZA */
+    if (ahora < fechaInicio) {
+      resetear();
+      return;
+    }
 
-    el.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    const diff = fechaFin - ahora;
+
+    const dias = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, "0");
+    const horas = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, "0");
+    const minutos = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
+    const segundos = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
+
+    /* ⏰ URGENCIA ÚLTIMOS 10s */
+    if (diff <= 10000) {
+      contador.classList.add("urgente");
+    } else {
+      contador.classList.remove("urgente");
+    }
+
+    animarNumero(diasEl, dias);
+    animarNumero(horasEl, horas);
+    animarNumero(minutosEl, minutos);
+    animarNumero(segundosEl, segundos);
   }
 
   actualizar();
   setInterval(actualizar, 1000);
 }
 
+/* =========================
+   INICIAR CONTADORES
+========================= */
 document.addEventListener("DOMContentLoaded", () => {
-  /* Iniciar Countdowns */
-  document.querySelectorAll(".countdown").forEach(el => {
-    const fecha = el.getAttribute("data-fecha");
-    if (fecha) {
-      const cursoId = el.closest('.curso-card').id; // Obtener el ID del curso
-      const mensajeFinalizadoID = cursoId === "curso1" ? "mensajeFinalizadoCurso1" : "mensajeFinalizadoCurso2"; // ID de mensaje según el curso
-      iniciarCuentaRegresiva(el, new Date(fecha).getTime(), mensajeFinalizadoID);
-    }
+  document.querySelectorAll(".contador-numeros").forEach(contador => {
+    const card = contador.closest(".curso-card") || document;
+    iniciarCuentaRegresiva(contador, card);
   });
-
-  /* Mostrar precios preventa vs regular */
-  document.querySelectorAll(".curso-card").forEach(card => {
-    const preventa = card.querySelector(".precio-preventa");
-    const regular = card.querySelector(".precio");
-    const cd = card.querySelector(".countdown");
-    let fechaCurso = cd ? new Date(cd.getAttribute("data-fecha")) : null;
-    const hoy = new Date();
-
-    if (preventa && regular) {
-      if (fechaCurso && hoy < fechaCurso) {
-        preventa.style.display = "block";
-        regular.style.display = "none";
-      } else {
-        preventa.style.display = "none";
-        regular.style.display = "block";
-      }
-    }
-  });
-  ajustarPaddingBanner();
-  window.addEventListener("resize", ajustarPaddingBanner);
-  /* Cerrar aviso global con botón ✖ (si existe) */
-  const btnCerrar = document.getElementById("avisoCerrar");
-  if (btnCerrar) btnCerrar.addEventListener("click", ocultarAviso);
 });
+/* =========================
+   INICIAR
+========================= */
+document.addEventListener("DOMContentLoaded", () => {
+ document.querySelectorAll(".contador-numeros").forEach(contador => {
+  iniciarCuentaRegresiva(contador, contador.closest(".card"));
+});
+  });
+
+
 
 /* =========================
    MODAL DE PAGO
@@ -248,3 +279,4 @@ window.copiarInterbancario = copiarInterbancario;
 window.reservarWhatsApp = reservarWhatsApp;
 window.showCopyNotice = showCopyNotice;
 window.hideCopyNotice = hideCopyNotice;
+
