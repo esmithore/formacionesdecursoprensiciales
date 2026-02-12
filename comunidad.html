@@ -48,16 +48,29 @@
           <p>Tipo: Curso Presencial</p>
           <p>Fecha: 15 Enero 2026 - 9:00 AM</p>
           <p>Ubicación: Lima, Perú</p>
+          <p style="color:red; font-weight:bold;">EL CURSO EMPEZÓ</p>
 
-          <!-- Precios -->
-          <p class="precio-preventa">S/ 300</p>
-          <p class="precio">S/ 350</p>
+         <!-- PRECIO PREVENTA -->
+<p class="precio-preventa">S/ 300</p>
 
-          <!-- Evento Finalizado (mensaje dinámico) -->
-          <p id="mensajeFinalizadoCurso1" style="display:none; color:red; font-weight:bold;">El evento ha comenzado.</p>
+<!-- CONTADOR NUMÉRICO -->
+<div class="contador-numeros">
+  <span class="dias">00</span>d :
+  <span class="horas">00</span>h :
+  <span class="minutos">00</span>m :
+  <span class="segundos">00</span>s
+</div>
 
-          <!-- Countdown -->
-          <div class="countdown" data-fecha="2026-01-15T09:00:00"></div>
+<!-- PRECIO REGULAR -->
+<p class="precio" style="display:none;">S/ 350</p>
+
+    <!-- MENSAJE FINAL -->
+    <p class="mensaje-inicio" style="display:none;">
+      <span class="contador-inicio"></span>
+      <span class="texto-inicio">Curso finalizado.</span>
+    </p>
+
+         
 
           <div class="card-buttons">
             <button class="btn-buy" onclick="abrirPago('Curso de Maniobras de Alta Velocidad')">Comprar</button>
@@ -76,4 +89,5 @@
   <script src="comunidad.js"></script>
 </body>
 </html>
+
 
