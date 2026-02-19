@@ -1,7 +1,7 @@
 
 /* =========================
    COUNTDOWN NUMÉRICO PRO
-   (20 ENERO → 15 FEBRERO)
+   (19 febrero 15 marzo)
 ========================= */
 
 function iniciarCuentaRegresiva(contador, card) {
@@ -11,8 +11,8 @@ function iniciarCuentaRegresiva(contador, card) {
   const minutosEl = card.querySelector(".minutos");
   const segundosEl = card.querySelector(".segundos");
 
-  const fechaInicio = new Date("2026-01-20T00:00:00").getTime();
-  const fechaFin    = new Date("2026-02-15T23:59:59").getTime();
+  const fechaInicio = new Date("2026-02-19T00:00:00").getTime();
+  const fechaFin    = new Date("2026-03-15T23:59:59").getTime();
 
   function animarNumero(el, valor) {
     if (el.textContent !== valor) {
@@ -279,4 +279,6 @@ window.copiarInterbancario = copiarInterbancario;
 window.reservarWhatsApp = reservarWhatsApp;
 window.showCopyNotice = showCopyNotice;
 window.hideCopyNotice = hideCopyNotice;
+
+
 
