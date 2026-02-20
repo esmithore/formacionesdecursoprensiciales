@@ -72,6 +72,150 @@ function iniciarCuentaRegresiva(contador, card) {
 }
 
 /* =========================
+   COUNTDOWN NUMÉRICO PRO
+   (20 febrero 12 abril)
+========================= */
+
+function iniciarCuentaRegresiva(contador, card) {
+
+  const diasEl = card.querySelector(".dias");
+  const horasEl = card.querySelector(".horas");
+  const minutosEl = card.querySelector(".minutos");
+  const segundosEl = card.querySelector(".segundos");
+
+  const fechaInicio = new Date("2026-02-20T00:00:00").getTime();
+  const fechaFin    = new Date("2026-04-12T23:59:59").getTime();
+
+  function animarNumero(el, valor) {
+    if (el.textContent !== valor) {
+      el.textContent = valor;
+      el.classList.remove("flip", "glow");
+      void el.offsetWidth;
+      el.classList.add("flip", "glow");
+    }
+  }
+
+  function resetear() {
+    animarNumero(diasEl, "00");
+    animarNumero(horasEl, "00");
+    animarNumero(minutosEl, "00");
+    animarNumero(segundosEl, "00");
+  }
+
+  function actualizar() {
+    const ahora = Date.now();
+
+    /* 🔒 FINALIZADO */
+    if (ahora >= fechaFin) {
+      contador.classList.remove("urgente");
+      contador.classList.add("locked");
+      resetear();
+      return;
+    }
+
+    /* ⏳ AÚN NO EMPIEZA */
+    if (ahora < fechaInicio) {
+      resetear();
+      return;
+    }
+
+    const diff = fechaFin - ahora;
+
+    const dias = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, "0");
+    const horas = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, "0");
+    const minutos = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
+    const segundos = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
+
+    /* ⏰ URGENCIA ÚLTIMOS 10s */
+    if (diff <= 10000) {
+      contador.classList.add("urgente");
+    } else {
+      contador.classList.remove("urgente");
+    }
+
+    animarNumero(diasEl, dias);
+    animarNumero(horasEl, horas);
+    animarNumero(minutosEl, minutos);
+    animarNumero(segundosEl, segundos);
+  }
+
+  actualizar();
+  setInterval(actualizar, 1000);
+}
+
+/* =========================
+   COUNTDOWN NUMÉRICO PRO
+   (19 febrero 15 marzo)
+========================= */
+
+function iniciarCuentaRegresiva(contador, card) {
+
+  const diasEl = card.querySelector(".dias");
+  const horasEl = card.querySelector(".horas");
+  const minutosEl = card.querySelector(".minutos");
+  const segundosEl = card.querySelector(".segundos");
+
+  const fechaInicio = new Date("2026-02-19T00:00:00").getTime();
+  const fechaFin    = new Date("2026-03-15T23:59:59").getTime();
+
+  function animarNumero(el, valor) {
+    if (el.textContent !== valor) {
+      el.textContent = valor;
+      el.classList.remove("flip", "glow");
+      void el.offsetWidth;
+      el.classList.add("flip", "glow");
+    }
+  }
+
+  function resetear() {
+    animarNumero(diasEl, "00");
+    animarNumero(horasEl, "00");
+    animarNumero(minutosEl, "00");
+    animarNumero(segundosEl, "00");
+  }
+
+  function actualizar() {
+    const ahora = Date.now();
+
+    /* 🔒 FINALIZADO */
+    if (ahora >= fechaFin) {
+      contador.classList.remove("urgente");
+      contador.classList.add("locked");
+      resetear();
+      return;
+    }
+
+    /* ⏳ AÚN NO EMPIEZA */
+    if (ahora < fechaInicio) {
+      resetear();
+      return;
+    }
+
+    const diff = fechaFin - ahora;
+
+    const dias = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, "0");
+    const horas = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, "0");
+    const minutos = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
+    const segundos = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
+
+    /* ⏰ URGENCIA ÚLTIMOS 10s */
+    if (diff <= 10000) {
+      contador.classList.add("urgente");
+    } else {
+      contador.classList.remove("urgente");
+    }
+
+    animarNumero(diasEl, dias);
+    animarNumero(horasEl, horas);
+    animarNumero(minutosEl, minutos);
+    animarNumero(segundosEl, segundos);
+  }
+
+  actualizar();
+  setInterval(actualizar, 1000);
+}
+
+/* =========================
    INICIAR CONTADORES
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
@@ -88,7 +232,6 @@ document.addEventListener("DOMContentLoaded", () => {
   iniciarCuentaRegresiva(contador, contador.closest(".card"));
 });
   });
-
 
 
 /* =========================
@@ -279,6 +422,7 @@ window.copiarInterbancario = copiarInterbancario;
 window.reservarWhatsApp = reservarWhatsApp;
 window.showCopyNotice = showCopyNotice;
 window.hideCopyNotice = hideCopyNotice;
+
 
 
 
