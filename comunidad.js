@@ -1,6 +1,7 @@
+
 /* =========================
    COUNTDOWN NUMÉRICO PRO
-   (03 mayo 17 mayo)
+   (26 mayo → 14 junio)
 ========================= */
 
 function iniciarCuentaRegresiva(contador, card) {
@@ -10,12 +11,13 @@ function iniciarCuentaRegresiva(contador, card) {
   const minutosEl = card.querySelector(".minutos");
   const segundosEl = card.querySelector(".segundos");
 
-  const fechaInicio = new Date("2026-05-03T00:00:00").getTime();
-  const fechaFin    = new Date("2026-05-17T23:59:59").getTime();
+  // FECHA FINAL
+  const fechaFin = new Date("2026-06-14T23:59:59").getTime();
 
   function animarNumero(el, valor) {
     if (el.textContent !== valor) {
       el.textContent = valor;
+
       el.classList.remove("flip", "glow");
       void el.offsetWidth;
       el.classList.add("flip", "glow");
@@ -30,27 +32,36 @@ function iniciarCuentaRegresiva(contador, card) {
   }
 
   function actualizar() {
+
     const ahora = Date.now();
-
-    if (ahora >= fechaFin) {
-      contador.classList.remove("urgente");
-      contador.classList.add("locked");
-      resetear();
-      return;
-    }
-
-    if (ahora < fechaInicio) {
-      resetear();
-      return;
-    }
-
     const diff = fechaFin - ahora;
 
-    const dias = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, "0");
-    const horas = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, "0");
-    const minutos = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
-    const segundos = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
+    // TERMINÓ
+    if (diff <= 0) {
+      contador.classList.remove("urgente");
+      contador.classList.add("locked");
 
+      resetear();
+      return;
+    }
+
+    const dias = String(
+      Math.floor(diff / (1000 * 60 * 60 * 24))
+    ).padStart(2, "0");
+
+    const horas = String(
+      Math.floor((diff / (1000 * 60 * 60)) % 24)
+    ).padStart(2, "0");
+
+    const minutos = String(
+      Math.floor((diff / (1000 * 60)) % 60)
+    ).padStart(2, "0");
+
+    const segundos = String(
+      Math.floor((diff / 1000) % 60)
+    ).padStart(2, "0");
+
+    // EFECTO URGENTE
     if (diff <= 10000) {
       contador.classList.add("urgente");
     } else {
@@ -66,24 +77,22 @@ function iniciarCuentaRegresiva(contador, card) {
   actualizar();
   setInterval(actualizar, 1000);
 }
+
 /* =========================
    INICIAR CONTADORES
 ========================= */
+
 document.addEventListener("DOMContentLoaded", () => {
+
   document.querySelectorAll(".contador-numeros").forEach(contador => {
+
     const card = contador.closest(".curso-card") || document;
+
     iniciarCuentaRegresiva(contador, card);
-  });
-});
-/* =========================
-   INICIAR
-========================= */
-document.addEventListener("DOMContentLoaded", () => {
- document.querySelectorAll(".contador-numeros").forEach(contador => {
-  iniciarCuentaRegresiva(contador, contador.closest(".card"));
-});
+
   });
 
+});
 
 /* =========================
    MODAL DE PAGO
