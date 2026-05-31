@@ -39,47 +39,99 @@
 
     <div class="cursos-container">
 
-      <!-- Curso 1 -->
-      <div class="curso-card" id="curso1">
-        <img src="images/images/chimbote.jpeg" alt="Curso de Maniobras de Alta Velocidad"/>
-        <div class="info">
-          <h3>Curso de Maniobras de Alta Velocidad en Articulaciones perifericas aplicada en la Rehabilitaciòn</h3>
-          <p>Instructor: <b>Esmith Ore</b></p>
-          <p>Tipo: Curso Presencial</p>
-          <p>Fecha: 14 Junio 2026 - 9:00 AM</p>
-          <p>Ubicación: Chimbote, Perú</p>
-          <p style="color:red; font-weight:bold;">EL CURSO EMPEZÓ</p>
+      <section class="comunidad">
+  <h2>Comunidad - Cursos Disponibles</h2>
 
-         <!-- PRECIO PREVENTA -->
-<p class="precio-preventa">S/ 300</p>
+  <div class="cursos-container">
 
-<!-- CONTADOR NUMÉRICO -->
-<div class="contador-numeros">
-  <span class="dias">00</span>d :
-  <span class="horas">00</span>h :
-  <span class="minutos">00</span>m :
-  <span class="segundos">00</span>s
-</div>
+```
+<!-- Curso 1 -->
+<div class="curso-card" id="curso1">
+  <img src="images/images/chimbote.jpeg" alt="Curso Chimbote">
 
-<!-- PRECIO REGULAR -->
-<p class="precio" style="display:none;">S/ 350</p>
+  <div class="info">
+    <h3>Curso de Maniobras de Alta Velocidad Articulaciones Periféricas (HVLA)</h3>
+    <p>Instructor: <b>Esmith Ore</b></p>
+    <p>Tipo: Curso Presencial</p>
+    <p>Fecha: 14 Junio 2026 - 9:00 AM</p>
+    <p>Ubicación: Chimbote, Perú</p>
 
-<!-- MENSAJE FINAL -->
+    <p class="precio-preventa">S/ 300</p>
+
+    <div class="contador-numeros">
+      <span class="dias">00</span>d :
+      <span class="horas">00</span>h :
+      <span class="minutos">00</span>m :
+      <span class="segundos">00</span>s
+    </div>
+
+    <p class="precio" style="display:none;">S/ 350</p>
+
     <p class="mensaje-inicio" style="display:none;">
       <span class="contador-inicio"></span>
       <span class="texto-inicio">Curso finalizado.</span>
     </p>
 
-          <div class="card-buttons">
-            <button class="btn-buy" onclick="abrirPago('Curso de Maniobras de Alta Velocidad Columna Vertebral')">Comprar</button>
-            <button class="btn-book" onclick="reservarWhatsApp('Curso de Maniobras de Alta Velocidad Columna Vertebral')">Reservar</button>
-          </div>
-        </div>
-      </div>
+    <div class="card-buttons">
+      <button class="btn-buy"
+        onclick="abrirPago('Curso de Maniobras de Alta Velocidad Articulaciones Periféricas (HVLA)')">
+        Comprar
+      </button>
+
+      <button class="btn-book"
+        onclick="reservarWhatsApp('Curso de Maniobras de Alta Velocidad Articulaciones Periféricas (HVLA)')">
+        Reservar
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Curso 2 -->
+<div class="curso-card" id="curso2">
+  <img src="images/images/miraflores.jpeg" alt="Curso Miraflores">
+
+  <div class="info">
+    <h3>Curso de Maniobras de Alta Velocidad Articulaciones Periféricas (HVLA)</h3>
+    <p>Instructor: <b>Esmith Ore</b></p>
+    <p>Tipo: Curso Presencial</p>
+    <p>Fecha: 28 Junio 2026 - 9:00 AM</p>
+    <p>Ubicación: Lima, Miraflores</p>
+
+    <p class="precio-preventa">S/ 300</p>
+
+    <div class="contador-numeros">
+      <span class="dias">00</span>d :
+      <span class="horas">00</span>h :
+      <span class="minutos">00</span>m :
+      <span class="segundos">00</span>s
+    </div>
+
+    <p class="precio" style="display:none;">S/ 350</p>
+
+    <p class="mensaje-inicio" style="display:none;">
+      <span class="contador-inicio"></span>
+      <span class="texto-inicio">Curso finalizado.</span>
+    </p>
+
+    <div class="card-buttons">
+      <button class="btn-buy"
+        onclick="abrirPago('Curso de Maniobras de Alta Velocidad Articulaciones Periféricas (HVLA)')">
+        Comprar
+      </button>
+
+      <button class="btn-book"
+        onclick="reservarWhatsApp('Curso de Maniobras de Alta Velocidad Articulaciones Periféricas (HVLA)')">
+        Reservar
+      </button>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
 
       
-  </section>
-
   <!-- Toast -->
   <div id="toast">Número copiado ✅</div>
   <!-- Modal de Pago --> <div id="modalPago" class="modal"> <div class="modal-content"> <span class="close" onclick="cerrarPago()">&times;</span> <h2 id="tituloCurso">Selecciona un método de pago</h2> <div class="metodos-pago"> <button onclick="copiarNumero('932319559', this)"> <i class="fa-solid fa-mobile-screen-button"></i> Yape </button> <button onclick="copiarNumero('932319559', this)"> <i class="fa-solid fa-qrcode"></i> Plin </button> <button onclick="copiarLocal('197179850238004', this)"> <i class="fa-solid fa-building-columns"></i> BCP Local </button> <button onclick="copiarInterbancario('00219717985023800459', this)"> <i class="fa-solid fa-building-columns"></i> BCP Interbancario </button> <button onclick="copiarLocal('001108320200666899', this)"> <i class="fa-solid fa-building-columns"></i> BBVA Local </button> <button onclick="copiarInterbancario('01183200020066689936', this)"> <i class="fa-solid fa-building-columns"></i> BBVA Interbancario </button> </div> <div class="qrs"> <div> <img src="images/images/qr whas.jpeg" alt="QR Yape"/> <p>Yape</p> </div> <div> <img src="images/images/qr plin.jpeg" alt="QR Plin"/> <p>Plin</p> </div> </div> </div> <div id="copyNotice" class="copy-notice" hidden> <span id="copyText"></span> <button type="button" class="copy-close" onclick="hideCopyNotice()">✖</button> </div> </div>
@@ -87,3 +139,4 @@
   <script src="comunidad.js"></script>
 </body>
 </html>
+
