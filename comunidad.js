@@ -1,4 +1,3 @@
-
 /* =========================
    COUNTDOWN NUMÉRICO PRO
    (26 mayo → 14 junio)
@@ -283,7 +282,21 @@ window.reservarWhatsApp = reservarWhatsApp;
 window.showCopyNotice = showCopyNotice;
 window.hideCopyNotice = hideCopyNotice;
 
+const curso1 = document.querySelector("#curso1");
+const contador1 = curso1.querySelector(".contador-numeros");
 
+iniciarCuentaRegresiva(
+contador1,
+curso1,
+"2026-06-14T23:59:59"
+);
 
+const curso2 = document.querySelector("#curso2");
+const contador2 = curso2.querySelector(".contador-numeros");
 
+iniciarCuentaRegresiva(
+contador2,
+curso2,
+"2026-06-28T23:59:59"
+);
 
