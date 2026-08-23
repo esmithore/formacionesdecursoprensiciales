@@ -8,6 +8,68 @@
   <link rel="stylesheet" href="comunidad.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // Fecha y hora del curso
+  const fechaCurso = new Date("2026-08-30T09:00:00-05:00").getTime();
+
+  // Elementos del contador
+  const curso = document.getElementById("curso1");
+
+  const dias = curso.querySelector(".dias");
+  const horas = curso.querySelector(".horas");
+  const minutos = curso.querySelector(".minutos");
+  const segundos = curso.querySelector(".segundos");
+
+  // Actualizar contador
+  function actualizarContador() {
+
+    const ahora = new Date().getTime();
+    const diferencia = fechaCurso - ahora;
+
+    // Cuando llega la fecha del curso
+    if (diferencia <= 0) {
+      dias.textContent = "00";
+      horas.textContent = "00";
+      minutos.textContent = "00";
+      segundos.textContent = "00";
+
+      return;
+    }
+
+    // Cálculo de tiempo
+    const d = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const h = Math.floor(
+      (diferencia % (1000 * 60 * 60 * 24)) /
+      (1000 * 60 * 60)
+    );
+    const m = Math.floor(
+      (diferencia % (1000 * 60 * 60)) /
+      (1000 * 60)
+    );
+    const s = Math.floor(
+      (diferencia % (1000 * 60)) /
+      1000
+    );
+
+    // Mostrar siempre 2 dígitos
+    dias.textContent = String(d).padStart(2, "0");
+    horas.textContent = String(h).padStart(2, "0");
+    minutos.textContent = String(m).padStart(2, "0");
+    segundos.textContent = String(s).padStart(2, "0");
+  }
+
+  // Ejecutar inmediatamente
+  actualizarContador();
+
+  // Actualizar cada segundo
+  setInterval(actualizarContador, 1000);
+
+});
+</script>
+  
 <body>
   
   <!-- HEADER -->
