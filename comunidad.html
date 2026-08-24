@@ -10,65 +10,166 @@
 </head>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+// ==========================================
+// CONTADORES DE CURSOS
+// ==========================================
 
-  // Fecha y hora del curso
-  const fechaCurso = new Date("2026-08-30T09:00:00-05:00").getTime();
+document.addEventListener("DOMContentLoaded", () => {
 
-  // Elementos del contador
-  const curso = document.getElementById("curso1");
+    const cursos = document.querySelectorAll(".curso-card");
 
-  const dias = curso.querySelector(".dias");
-  const horas = curso.querySelector(".horas");
-  const minutos = curso.querySelector(".minutos");
-  const segundos = curso.querySelector(".segundos");
+    function actualizarContadores() {
 
-  // Actualizar contador
-  function actualizarContador() {
+        const ahora = Date.now();
 
-    const ahora = new Date().getTime();
-    const diferencia = fechaCurso - ahora;
+        cursos.forEach(curso => {
 
-    // Cuando llega la fecha del curso
-    if (diferencia <= 0) {
-      dias.textContent = "06";
-      horas.textContent = "00";
-      minutos.textContent = "00";
-      segundos.textContent = "00";
+            // Obtener fecha del curso
+            const fechaTexto = curso.dataset.fecha;
 
-      return;
+            if (!fechaTexto) {
+                console.warn(
+                    "El curso no tiene data-fecha:",
+                    curso.id
+                );
+                return;
+            }
+
+            const fechaCurso =
+                new Date(fechaTexto).getTime();
+
+            // Elementos del contador
+            const dias =
+                curso.querySelector(".dias");
+
+            const horas =
+                curso.querySelector(".horas");
+
+            const minutos =
+                curso.querySelector(".minutos");
+
+            const segundos =
+                curso.querySelector(".segundos");
+
+            // Elementos de precio
+            const precioPreventa =
+                curso.querySelector(".precio-preventa");
+
+            const precioNormal =
+                curso.querySelector(".precio");
+
+            // Mensaje
+            const mensajeInicio =
+                curso.querySelector(".mensaje-inicio");
+
+            // Calcular diferencia
+            let diferencia =
+                fechaCurso - ahora;
+
+
+            // ======================================
+            // EL CURSO TODAVÍA NO EMPIEZA
+            // ======================================
+
+            if (diferencia > 0) {
+
+                const d = Math.floor(
+                    diferencia /
+                    (1000 * 60 * 60 * 24)
+                );
+
+                const h = Math.floor(
+                    (diferencia %
+                    (1000 * 60 * 60 * 24)) /
+                    (1000 * 60 * 60)
+                );
+
+                const m = Math.floor(
+                    (diferencia %
+                    (1000 * 60 * 60)) /
+                    (1000 * 60)
+                );
+
+                const s = Math.floor(
+                    (diferencia %
+                    (1000 * 60)) /
+                    1000
+                );
+
+
+                // Mostrar contador
+                dias.textContent =
+                    String(d).padStart(2, "0");
+
+                horas.textContent =
+                    String(h).padStart(2, "0");
+
+                minutos.textContent =
+                    String(m).padStart(2, "0");
+
+                segundos.textContent =
+                    String(s).padStart(2, "0");
+
+
+                // Mostrar preventa
+                if (precioPreventa) {
+                    precioPreventa.style.display = "";
+                }
+
+                // Ocultar precio normal
+                if (precioNormal) {
+                    precioNormal.style.display = "none";
+                }
+
+                // Ocultar mensaje
+                if (mensajeInicio) {
+                    mensajeInicio.style.display = "none";
+                }
+
+            }
+
+
+            // ======================================
+            // EL CURSO YA COMENZÓ
+            // ======================================
+
+            else {
+
+                dias.textContent = "00";
+                horas.textContent = "00";
+                minutos.textContent = "00";
+                segundos.textContent = "00";
+
+
+                // Ocultar preventa
+                if (precioPreventa) {
+                    precioPreventa.style.display = "none";
+                }
+
+                // Mostrar precio normal
+                if (precioNormal) {
+                    precioNormal.style.display = "";
+                }
+
+                // Mostrar mensaje
+                if (mensajeInicio) {
+                    mensajeInicio.style.display = "";
+                }
+            }
+
+        });
     }
 
-    // Cálculo de tiempo
-    const d = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-    const h = Math.floor(
-      (diferencia % (1000 * 60 * 60 * 24)) /
-      (1000 * 60 * 60)
-    );
-    const m = Math.floor(
-      (diferencia % (1000 * 60 * 60)) /
-      (1000 * 60)
-    );
-    const s = Math.floor(
-      (diferencia % (1000 * 60)) /
-      1000
-    );
 
-    // Mostrar siempre 2 dígitos
-    dias.textContent = String(d).padStart(2, "0");
-    horas.textContent = String(h).padStart(2, "0");
-    minutos.textContent = String(m).padStart(2, "0");
-    segundos.textContent = String(s).padStart(2, "0");
-  }
+    // Ejecutar al cargar la página
+    actualizarContadores();
 
-  // Ejecutar inmediatamente
-  actualizarContador();
 
-  // Actualizar cada segundo
-  setInterval(actualizarContador, 1000);
+    // Actualizar cada segundo
+    setInterval(actualizarContadores, 1000);
 
 });
-</script>
+  <script>
   
 <body>
   
@@ -104,8 +205,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ```
 <!-- Curso 1 -->
-<div class="curso-card" id="curso1">
-  <img src="images/images/curso 2.jpeg" alt="Curso Chimbote">
+<div class="curso-card" id="curso1" data-fecha="2026-08-30T09:00:00-05:00">
+  <img src="images/images/curso 2.jpeg" alt="La Molina">
 
   <div class="info">
     <h3>CURSO DE BIOMECANICA APLICADA AL EJERCICIO TERAPÉUTICO</h3>
@@ -116,12 +217,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <p class="precio-preventa">S/ 300</p>
 
-    <div class="contador-numeros">
-      <span class="dias">07</span>d :
-      <span class="horas">00</span>h :
-      <span class="minutos">00</span>m :
-      <span class="segundos">00</span>s
-    </div>
+   <div class="contador-numeros">
+  <span class="dias">00</span>d :
+  <span class="horas">00</span>h :
+  <span class="minutos">00</span>m :
+  <span class="segundos">00</span>s
+</div>
 
     <p class="precio" style="display:none;">S/ 350</p>
 
@@ -137,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </button>
 
       <button class="btn-book"
-        onclick="reservarWhatsApp('Curso de Maniobras de Alta Velocidad')">
+        onclick="reservarWhatsApp('CURSO DE BIOMECANICA APLICADA AL EJERCICIO TERAPÉUTICO')">
         Reservar
       </button>
     </div>
@@ -145,11 +246,11 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 
 <!-- Curso 2 -->
-<div class="curso-card" id="curso2">
+<div class="curso-card" id="curso2" data-fecha="2026-09-06T09:00:00-05:00">
   <img src="images/images/curso 1.jpeg" alt="Curso La Molina">
 
   <div class="info">
-    <h3>Curso de Maniobras de Alta Velocidad</h3>
+    <h3>CURSO DE MANIOBRAS DE ALTA VELOCIDAD</h3>
     <p>Instructor: <b>Lic. Esmith Ore</b></p>
     <p>Tipo: Curso Presencial</p>
     <p>Fecha: 06 Setiembre 2026 - 9:00 AM</p>
@@ -158,11 +259,11 @@ document.addEventListener("DOMContentLoaded", function () {
     <p class="precio-preventa">S/ 300</p>
 
     <div class="contador-numeros">
-      <span class="dias">13</span>d :
-      <span class="horas">10</span>h :
-      <span class="minutos">49</span>m :
-      <span class="segundos">00</span>s
-    </div>
+  <span class="dias">00</span>d :
+  <span class="horas">00</span>h :
+  <span class="minutos">00</span>m :
+  <span class="segundos">00</span>s
+</div>
 
     <p class="precio" style="display:none;">S/ 350</p>
 
@@ -173,12 +274,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <div class="card-buttons">
       <button class="btn-buy"
-        onclick="abrirPago('Curso de Maniobras de Alta Velocidad')">
+        onclick="abrirPago('CURSO DE MANIOBRAS DE ALTA VELOCIDAD')">
         Comprar
       </button>
 
       <button class="btn-book"
-        onclick="reservarWhatsApp('Curso de Maniobras de Alta Velocidad')">
+        onclick="reservarWhatsApp('CURSO DE MANIOBRAS DE ALTA VELOCIDAD')">
         Reservar
       </button>
     </div>
