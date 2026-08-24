@@ -1,302 +1,234 @@
-/* =========================
-   COUNTDOWN NUMÉRICO PRO
-   (26 mayo → 14 junio)
-========================= */
+// ==========================================
+// COMUNIDAD.JS
+// CONTADORES DE CURSOS
+// ==========================================
 
-function iniciarCuentaRegresiva(contador, card) {
+document.addEventListener("DOMContentLoaded", function () {
 
-  const diasEl = card.querySelector(".dias");
-  const horasEl = card.querySelector(".horas");
-  const minutosEl = card.querySelector(".minutos");
-  const segundosEl = card.querySelector(".segundos");
+    const cursos = document.querySelectorAll(".curso-card");
 
-  // FECHA FINAL
-  const fechaFin = new Date("2026-06-14T23:59:59").getTime();
 
-  function animarNumero(el, valor) {
-    if (el.textContent !== valor) {
-      el.textContent = valor;
+    // ==========================================
+    // ACTUALIZAR CONTADORES
+    // ==========================================
 
-      el.classList.remove("flip", "glow");
-      void el.offsetWidth;
-      el.classList.add("flip", "glow");
+    function actualizarContadores() {
+
+        const ahora = Date.now();
+
+        cursos.forEach(function (curso) {
+
+            const fechaTexto = curso.dataset.fecha;
+
+            if (!fechaTexto) {
+                console.warn(
+                    "El curso no tiene data-fecha:",
+                    curso.id
+                );
+
+                return;
+            }
+
+
+            const fechaCurso = new Date(fechaTexto).getTime();
+
+
+            // Verificar que la fecha sea válida
+
+            if (isNaN(fechaCurso)) {
+
+                console.error(
+                    "Fecha inválida:",
+                    fechaTexto,
+                    "Curso:",
+                    curso.id
+                );
+
+                return;
+            }
+
+
+            // ======================================
+            // ELEMENTOS DEL CONTADOR
+            // ======================================
+
+            const dias = curso.querySelector(".dias");
+            const horas = curso.querySelector(".horas");
+            const minutos = curso.querySelector(".minutos");
+            const segundos = curso.querySelector(".segundos");
+
+
+            // Verificar elementos
+
+            if (!dias || !horas || !minutos || !segundos) {
+
+                console.warn(
+                    "Faltan elementos del contador:",
+                    curso.id
+                );
+
+                return;
+            }
+
+
+            // ======================================
+            // OTROS ELEMENTOS
+            // ======================================
+
+            const precioPreventa =
+                curso.querySelector(".precio-preventa");
+
+            const precioNormal =
+                curso.querySelector(".precio");
+
+            const mensajeInicio =
+                curso.querySelector(".mensaje-inicio");
+
+
+            // ======================================
+            // DIFERENCIA DE TIEMPO
+            // ======================================
+
+            const diferencia = fechaCurso - ahora;
+
+
+            // ======================================
+            // CURSO AÚN NO COMIENZA
+            // ======================================
+
+            if (diferencia > 0) {
+
+                const diasRestantes =
+                    Math.floor(
+                        diferencia /
+                        (1000 * 60 * 60 * 24)
+                    );
+
+
+                const horasRestantes =
+                    Math.floor(
+                        (diferencia %
+                            (1000 * 60 * 60 * 24)) /
+                        (1000 * 60 * 60)
+                    );
+
+
+                const minutosRestantes =
+                    Math.floor(
+                        (diferencia %
+                            (1000 * 60 * 60)) /
+                        (1000 * 60)
+                    );
+
+
+                const segundosRestantes =
+                    Math.floor(
+                        (diferencia %
+                            (1000 * 60)) /
+                        1000
+                    );
+
+
+                // ==================================
+                // MOSTRAR CONTADOR
+                // ==================================
+
+                dias.textContent =
+                    String(diasRestantes).padStart(2, "0");
+
+                horas.textContent =
+                    String(horasRestantes).padStart(2, "0");
+
+                minutos.textContent =
+                    String(minutosRestantes).padStart(2, "0");
+
+                segundos.textContent =
+                    String(segundosRestantes).padStart(2, "0");
+
+
+                // ==================================
+                // PREVENTA
+                // ==================================
+
+                if (precioPreventa) {
+                    precioPreventa.style.display = "";
+                }
+
+
+                // ==================================
+                // PRECIO NORMAL
+                // ==================================
+
+                if (precioNormal) {
+                    precioNormal.style.display = "none";
+                }
+
+
+                // ==================================
+                // MENSAJE
+                // ==================================
+
+                if (mensajeInicio) {
+                    mensajeInicio.style.display = "none";
+                }
+
+            }
+
+
+            // ======================================
+            // CURSO YA COMENZÓ
+            // ======================================
+
+            else {
+
+                dias.textContent = "00";
+                horas.textContent = "00";
+                minutos.textContent = "00";
+                segundos.textContent = "00";
+
+
+                // Ocultar preventa
+
+                if (precioPreventa) {
+                    precioPreventa.style.display = "none";
+                }
+
+
+                // Mostrar precio normal
+
+                if (precioNormal) {
+                    precioNormal.style.display = "";
+                }
+
+
+                // Mostrar mensaje
+
+                if (mensajeInicio) {
+                    mensajeInicio.style.display = "";
+                }
+
+            }
+
+        });
+
     }
-  }
 
-  function resetear() {
-    animarNumero(diasEl, "00");
-    animarNumero(horasEl, "00");
-    animarNumero(minutosEl, "00");
-    animarNumero(segundosEl, "00");
-  }
 
-  function actualizar() {
+    // ==========================================
+    // PRIMERA EJECUCIÓN
+    // ==========================================
 
-    const ahora = Date.now();
-    const diff = fechaFin - ahora;
+    actualizarContadores();
 
-    // TERMINÓ
-    if (diff <= 0) {
-      contador.classList.remove("urgente");
-      contador.classList.add("locked");
 
-      resetear();
-      return;
-    }
+    // ==========================================
+    // ACTUALIZAR CADA SEGUNDO
+    // ==========================================
 
-    const dias = String(
-      Math.floor(diff / (1000 * 60 * 60 * 24))
-    ).padStart(2, "0");
-
-    const horas = String(
-      Math.floor((diff / (1000 * 60 * 60)) % 24)
-    ).padStart(2, "0");
-
-    const minutos = String(
-      Math.floor((diff / (1000 * 60)) % 60)
-    ).padStart(2, "0");
-
-    const segundos = String(
-      Math.floor((diff / 1000) % 60)
-    ).padStart(2, "0");
-
-    // EFECTO URGENTE
-    if (diff <= 10000) {
-      contador.classList.add("urgente");
-    } else {
-      contador.classList.remove("urgente");
-    }
-
-    animarNumero(diasEl, dias);
-    animarNumero(horasEl, horas);
-    animarNumero(minutosEl, minutos);
-    animarNumero(segundosEl, segundos);
-  }
-
-  actualizar();
-  setInterval(actualizar, 1000);
-}
-
-/* =========================
-   INICIAR CONTADORES
-========================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  document.querySelectorAll(".contador-numeros").forEach(contador => {
-
-    const card = contador.closest(".curso-card") || document;
-
-    iniciarCuentaRegresiva(contador, card);
-
-  });
+    setInterval(
+        actualizarContadores,
+        1000
+    );
 
 });
-
-/* =========================
-   MODAL DE PAGO
-========================= */
-function abrirPago(nombreCurso) {
-  document.getElementById("tituloCurso").innerText = "Has elegido: " + nombreCurso;
-  document.getElementById("modalPago").style.display = "flex";
-}
-
-function cerrarPago() {
-  document.getElementById("modalPago").style.display = "none";
-}
-
-window.addEventListener("click", (e) => {
-  const modal = document.getElementById("modalPago");
-  if (e.target === modal) cerrarPago();
-});
-
-/* =========================
-   TOAST
-========================= */
-function mostrarToast(mensaje) {
-  const toast = document.getElementById("toast");
-  toast.innerText = mensaje;
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 3000);
-}
-
-/* =========================
-   COPIAR CON FEEDBACK
-========================= */
-function copiarAlPortapapeles(texto) {
-  if (navigator.clipboard && window.isSecureContext) {
-    return navigator.clipboard.writeText(texto);
-  } else {
-    let textArea = document.createElement("textarea");
-    textArea.value = texto;
-    textArea.style.position = "fixed";
-    textArea.style.left = "-9999px";
-    textArea.style.top = "-9999px";
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-
-    return new Promise((resolve, reject) => {
-      try {
-        document.execCommand("copy");
-        resolve();
-      } catch (err) {
-        reject(err);
-      } finally {
-        document.body.removeChild(textArea);
-      }
-    });
-  }
-}
-
-function feedbackBoton(boton) {
-  if (!boton) return;
-  const textoOriginal = boton.innerHTML;
-  boton.innerHTML = "✔️ Copiado";
-  boton.classList.add("btn-copiado");
-  boton.disabled = true;
-
-  setTimeout(() => {
-    boton.innerHTML = textoOriginal;
-    boton.classList.remove("btn-copiado");
-    boton.disabled = false;
-  }, 2000);
-}
-
-/* =========================
-   AVISOS DENTRO DEL MODAL: solo debajo de los QR
-========================= */
-let avisoTimeout;
-
-/* Muestra el aviso por 2 minutos */
-function showCopyNotice(texto, etiqueta) {
-  const box = document.getElementById("copyNotice");
-  const label = document.getElementById("copyText");
-  if (!box || !label) return;
-
-  const msg = etiqueta
-    ? `Copiado (${etiqueta}): ${texto}`
-    : `Copiado: ${texto}`;
-
-  label.textContent = msg;
-
-  // Mostrar el aviso
-  box.hidden = false;
-
-  // Reiniciar el temporizador (2 minutos)
-  clearTimeout(avisoTimeout);
-  avisoTimeout = setTimeout(() => {
-    box.hidden = true;
-  }, 120000);
-}
-
-function hideCopyNotice() {
-  const box = document.getElementById("copyNotice");
-  if (!box) return;
-  box.hidden = true;
-  clearTimeout(avisoTimeout);
-}
-
-/* =========================
-   Compatibilidad: soporta tanto la firma antigua como la nueva
-   - Antiguo: copiarNumero('932...', this)
-   - Nuevo:   copiarNumero('932...', 'Yape', this)
-========================= */
-function _parseArgs(arg2, arg3) {
-  let etiqueta = "";
-  let btn = null;
-
-  if (typeof arg2 === "string") {
-    etiqueta = arg2;
-    btn = arg3 || null;
-  } else {
-    btn = arg2 || null;
-  }
-
-  return { etiqueta, btn };
-}
-
-function copiarNumero(numero, arg2, arg3) {
-  const { etiqueta, btn } = _parseArgs(arg2, arg3);
-  copiarAlPortapapeles(numero).then(() => {
-    mostrarToast("Número copiado: " + numero);
-    feedbackBoton(btn);
-    showCopyNotice(numero, etiqueta);
-  });
-}
-
-function copiarLocal(numero, arg2, arg3) {
-  const { etiqueta, btn } = _parseArgs(arg2, arg3);
-  copiarAlPortapapeles(numero).then(() => {
-    mostrarToast("Número copiado: " + numero);
-    feedbackBoton(btn);
-    showCopyNotice(numero, etiqueta);
-  });
-}
-
-function copiarInterbancario(numero, arg2, arg3) {
-  const { etiqueta, btn } = _parseArgs(arg2, arg3);
-  copiarAlPortapapeles(numero).then(() => {
-    mostrarToast("Número copiado: " + numero);
-    feedbackBoton(btn);
-    showCopyNotice(numero, etiqueta);
-  });
-}
-
-/* =========================
-   RESERVA WHATSAPP
-========================= */
-function reservarWhatsApp(nombreCurso) {
-  const numero = "51978820283"; // tu número con código país
-  const mensaje = `Hola, quiero reservar el curso: ${nombreCurso}`;
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank");
-}
-
-/* =========================
-   BANNER FIJO: empuja el body
-========================= */
-function ajustarPaddingBanner() {
-  const banner = document.getElementById("footerBanner");
-  if (!banner) return;
-
-  const styles = window.getComputedStyle(banner);
-  const isFixed = styles.position === "fixed";
-
-  if (isFixed) {
-    document.body.style.paddingBottom = banner.offsetHeight + 8 + "px";
-  } else {
-    document.body.style.paddingBottom = "0px";
-  }
-}
-
-/* =========================
-   Exponer funciones al window
-========================= */
-window.abrirPago = abrirPago;
-window.cerrarPago = cerrarPago;
-window.copiarNumero = copiarNumero;
-window.copiarLocal = copiarLocal;
-window.copiarInterbancario = copiarInterbancario;
-window.reservarWhatsApp = reservarWhatsApp;
-window.showCopyNotice = showCopyNotice;
-window.hideCopyNotice = hideCopyNotice;
-
-const curso1 = document.querySelector("#curso1");
-const contador1 = curso1.querySelector(".contador-numeros");
-
-iniciarCuentaRegresiva(
-contador1,
-curso1,
-"2026-06-14T23:59:59"
-);
-
-const curso2 = document.querySelector("#curso2");
-const contador2 = curso2.querySelector(".contador-numeros");
-
-iniciarCuentaRegresiva(
-contador2,
-curso2,
-"2026-06-28T23:59:59"
-);
 
