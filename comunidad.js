@@ -83,13 +83,64 @@ function iniciarCuentaRegresiva(contador, card) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  document.querySelectorAll(".contador-numeros").forEach(contador => {
+    const cursos = document.querySelectorAll(".curso-card");
 
-    const card = contador.closest(".curso-card") || document;
+    cursos.forEach(curso => {
 
-    iniciarCuentaRegresiva(contador, card);
+        const fechaObjetivo = new Date(curso.dataset.fecha).getTime();
 
-  });
+        const dias = curso.querySelector(".dias");
+        const horas = curso.querySelector(".horas");
+        const minutos = curso.querySelector(".minutos");
+        const segundos = curso.querySelector(".segundos");
+
+        const contador = curso.querySelector(".contador-numeros");
+        const precioPreventa = curso.querySelector(".precio-preventa");
+        const precio = curso.querySelector(".precio");
+        const mensajeInicio = curso.querySelector(".mensaje-inicio");
+
+        function actualizarContador() {
+
+            const ahora = new Date().getTime();
+            const diferencia = fechaObjetivo - ahora;
+
+            // Curso iniciado/finalizado
+            if (diferencia <= 0) {
+
+                contador.style.display = "none";
+
+                if (precioPreventa) {
+                    precioPreventa.style.display = "none";
+                }
+
+                if (precio) {
+                    precio.style.display = "block";
+                }
+
+                if (mensajeInicio) {
+                    mensajeInicio.style.display = "block";
+                }
+
+                return;
+            }
+
+            const totalSegundos = Math.floor(diferencia / 1000);
+
+            const d = Math.floor(totalSegundos / 86400);
+            const h = Math.floor((totalSegundos % 86400) / 3600);
+            const m = Math.floor((totalSegundos % 3600) / 60);
+            const s = totalSegundos % 60;
+
+            dias.textContent = String(d).padStart(2, "0");
+            horas.textContent = String(h).padStart(2, "0");
+            minutos.textContent = String(m).padStart(2, "0");
+            segundos.textContent = String(s).padStart(2, "0");
+        }
+
+        actualizarContador();
+
+        setInterval(actualizarContador, 1000);
+    });
 
 });
 
