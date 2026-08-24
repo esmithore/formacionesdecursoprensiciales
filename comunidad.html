@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 <body>
   
-  <!-- HEADER -->
+  //<!-- HEADER -->
   <header class="header">
     <div class="logo">
       <h1>APERTURA <span>DEL</span></h1>
@@ -181,13 +181,13 @@ document.addEventListener("DOMContentLoaded", () => {
       <p>intra-articular pressure change</p>
     </div>
 
-    <!-- Botón hamburguesa -->
+    //<!-- Botón hamburguesa -->
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="menu-label">
       <img src="images/images/menu.png" class="menu-icon" alt="Menú">
     </label>
 
-    <!-- Navegación -->
+    //<!-- Navegación -->
     <nav class="navbar">
       <ul>
         <li><a href="index.html">Inicio</a></li>
@@ -202,9 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <div class="cursos-container">
 
-
-```
-<!-- Curso 1 -->
+//<!-- Curso 1 -->
 <div class="curso-card" id="curso1" data-fecha="2026-08-30T09:00:00-05:00">
   <img src="images/images/curso 2.jpeg" alt="La Molina">
 
@@ -245,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 </div>
 
-<!-- Curso 2 -->
+//<!-- Curso 2 -->
 <div class="curso-card" id="curso2" data-fecha="2026-09-06T09:00:00-05:00">
   <img src="images/images/curso 1.jpeg" alt="Curso La Molina">
 
@@ -289,9 +287,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   </div>
 </section>
-
       
-  <!-- Toast -->
+  //<!-- Toast -->
   <div id="toast">Número copiado ✅</div>
   <!-- Modal de Pago --> <div id="modalPago" class="modal"> <div class="modal-content"> <span class="close" onclick="cerrarPago()">&times;</span> <h2 id="tituloCurso">Selecciona un método de pago</h2> <div class="metodos-pago"> <button onclick="copiarNumero('932319559', this)"> <i class="fa-solid fa-mobile-screen-button"></i> Yape </button> <button onclick="copiarNumero('932319559', this)"> <i class="fa-solid fa-qrcode"></i> Plin </button> <button onclick="copiarLocal('197179850238004', this)"> <i class="fa-solid fa-building-columns"></i> BCP Local </button> <button onclick="copiarInterbancario('00219717985023800459', this)"> <i class="fa-solid fa-building-columns"></i> BCP Interbancario </button> <button onclick="copiarLocal('001108320200666899', this)"> <i class="fa-solid fa-building-columns"></i> BBVA Local </button> <button onclick="copiarInterbancario('01183200020066689936', this)"> <i class="fa-solid fa-building-columns"></i> BBVA Interbancario </button> </div> <div class="qrs"> <div> <img src="images/images/qr whas.jpeg" alt="QR Yape"/> <p>Yape</p> </div> <div> <img src="images/images/qr plin.jpeg" alt="QR Plin"/> <p>Plin</p> </div> </div> </div> <div id="copyNotice" class="copy-notice" hidden> <span id="copyText"></span> <button type="button" class="copy-close" onclick="hideCopyNotice()">✖</button> </div> </div>
 
