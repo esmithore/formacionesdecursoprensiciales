@@ -1,446 +1,137 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Comunidad - Cursos</title>
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="comunidad.css">
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    >
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comunidad - Cursos</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="comunidad.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
-
 <body>
-
-    <!-- ==============================
-         HEADER
-    =============================== -->
-    <header class="header">
-
-        <div class="logo">
-            <h1>APERTURA <span>DEL</span></h1>
-            <h1>MÉTODO <span>ADJUSTER</span></h1>
-            <p>intra-articular pressure change</p>
-        </div>
-
-        <!-- Botón hamburguesa -->
-        <input type="checkbox" id="menu-toggle">
-
-        <label for="menu-toggle" class="menu-label">
-            <img
-                src="images/images/menu.png"
-                class="menu-icon"
-                alt="Menú"
-            >
-        </label>
-
-        <!-- Navegación -->
-        <nav class="navbar">
-            <ul>
-                <li>
-                    <a href="index.html">Inicio</a>
-                </li>
-
-                <li>
-                    <a href="#cursos">Los Cursos</a>
-                </li>
-
-                <li>
-                    <a href="comunidad.html">Comunidad</a>
-                </li>
-            </ul>
-        </nav>
-
-    </header>
-
-
-    <!-- ==============================
-         CURSOS
-    =============================== -->
-    <section class="comunidad" id="cursos">
-
-        <h2>Comunidad - Cursos Disponibles</h2>
-
-        <div class="cursos-container">
-
-
-            <!-- ==========================
-                 CURSO 1
-            =========================== -->
-            <div
-                class="curso-card"
-                id="curso1"
-                data-fecha="2026-08-30T09:00:00-05:00"
-            >
-
-                <img
-                    src="images/images/curso 2.jpeg"
-                    alt="Curso de Biomecánica Aplicada"
-                >
-
-                <div class="info">
-
-                    <h3>
-                        CURSO DE BIOMECANICA APLICADA
-                        AL EJERCICIO TERAPÉUTICO
-                    </h3>
-
-                    <p>
-                        Instructor:
-                        <b>Lic. Luis Escobar</b>
-                    </p>
-
-                    <p>
-                        Tipo: Curso Presencial
-                    </p>
-
-                    <p>
-                        Fecha:
-                        30 Agosto 2026 - 9:00 AM
-                    </p>
-
-                    <p>
-                        Ubicación:
-                        La Molina, Lima
-                    </p>
-
-
-                    <!-- Precio preventa -->
-                    <p class="precio-preventa">
-                        S/ 300
-                    </p>
-
-
-                    <!-- CONTADOR -->
-                    <div class="contador-numeros">
-
-                        <span class="dias">06</span>d :
-
-                        <span class="horas">11</span>h :
-
-                        <span class="minutos">05</span>m :
-
-                        <span class="segundos">00</span>s
-
-                    </div>
-
-
-                    <!-- Precio normal -->
-                    <p
-                        class="precio"
-                        style="display: none;"
-                    >
-                        S/ 350
-                    </p>
-
-
-                    <!-- Mensaje cuando inicia -->
-                    <p
-                        class="mensaje-inicio"
-                        style="display: none;"
-                    >
-                        <span class="contador-inicio"></span>
-
-                        <span class="texto-inicio">
-                            Curso Disponible
-                        </span>
-                    </p>
-
-
-                    <!-- Botones -->
-                    <div class="card-buttons">
-
-                        <button
-                            type="button"
-                            class="btn-buy"
-                            onclick="abrirPago('CURSO DE BIOMECANICA APLICADA AL EJERCICIO TERAPÉUTICO')"
-                        >
-                            Comprar
-                        </button>
-
-                        <button
-                            type="button"
-                            class="btn-book"
-                            onclick="reservarWhatsApp('CURSO DE BIOMECANICA APLICADA AL EJERCICIO TERAPÉUTICO')"
-                        >
-                            Reservar
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ==========================
-                 CURSO 2
-            =========================== -->
-            <div
-                class="curso-card"
-                id="curso2"
-                data-fecha="2026-09-06T09:00:00-05:00"
-            >
-
-                <img
-                    src="images/images/curso 1.jpeg"
-                    alt="Curso de Maniobras de Alta Velocidad"
-                >
-
-                <div class="info">
-
-                    <h3>
-                        CURSO DE MANIOBRAS
-                        DE ALTA VELOCIDAD
-                    </h3>
-
-                    <p>
-                        Instructor:
-                        <b>Lic. Esmith Ore</b>
-                    </p>
-
-                    <p>
-                        Tipo: Curso Presencial
-                    </p>
-
-                    <p>
-                        Fecha:
-                        06 Setiembre 2026 - 9:00 AM
-                    </p>
-
-                    <p>
-                        Ubicación:
-                        La Molina, Lima
-                    </p>
-
-
-                    <!-- Precio preventa -->
-                    <p class="precio-preventa">
-                        S/ 300
-                    </p>
-
-
-                    <!-- CONTADOR -->
-                    <div class="contador-numeros">
-
-                        <span class="dias">13</span>d :
-
-                        <span class="horas">11</span>h :
-
-                        <span class="minutos">06</span>m :
-
-                        <span class="segundos">00</span>s
-
-                    </div>
-
-
-                    <!-- Precio normal -->
-                    <p
-                        class="precio"
-                        style="display: none;"
-                    >
-                        S/ 350
-                    </p>
-
-
-                    <!-- Mensaje cuando inicia -->
-                    <p
-                        class="mensaje-inicio"
-                        style="display: none;"
-                    >
-
-                        <span class="contador-inicio"></span>
-
-                        <span class="texto-inicio">
-                            Curso Disponible
-                        </span>
-
-                    </p>
-
-
-                    <!-- Botones -->
-                    <div class="card-buttons">
-
-                        <button
-                            type="button"
-                            class="btn-buy"
-                            onclick="abrirPago('CURSO DE MANIOBRAS DE ALTA VELOCIDAD')"
-                        >
-                            Comprar
-                        </button>
-
-                        <button
-                            type="button"
-                            class="btn-book"
-                            onclick="reservarWhatsApp('CURSO DE MANIOBRAS DE ALTA VELOCIDAD')"
-                        >
-                            Reservar
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==============================
-         TOAST
-    =============================== -->
-
-    <div id="toast">
-        Número copiado ✅
+  
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <h1>APERTURA <span>DEL</span></h1>
+      <h1>MÉTODO <span>ADJUSTER</span></h1>
+      <p>intra-articular pressure change</p>
     </div>
 
+    <!-- Botón hamburguesa -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-label">
+      <img src="images/images/menu.png" class="menu-icon" alt="Menú">
+    </label>
+
+    <!-- Navegación -->
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#cursos">Los Cursos</a></li>
+        <li><a href="comunidad.html">Comunidad</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="comunidad">
+    <h2>Comunidad - Cursos Disponibles</h2>
+
+    <div class="cursos-container">
 
 
-    <!-- ==============================
-         MODAL DE PAGO
-    =============================== -->
+```
+<!-- Curso 1 -->
+<div class="curso-card" id="curso1">
+  <img src="images/images/curso 2.jpeg" alt="Curso Chimbote">
 
-    <div
-        id="modalPago"
-        class="modal"
-    >
+  <div class="info">
+    <h3>CURSO DE BIOMECANICA APLICADA AL EJERCICIO TERAPÉUTICO</h3>
+    <p>Instructor: <b>Lic. Luis Escobar</b></p>
+    <p>Tipo: Curso Presencial</p>
+    <p>Fecha: 30 Agosto 2026 - 9:00 AM</p>
+    <p>Ubicación: La Molina, Lima</p>
 
-        <div class="modal-content">
+    <p class="precio-preventa">S/ 300</p>
 
-            <span
-                class="close"
-                onclick="cerrarPago()"
-            >
-                &times;
-            </span>
-
-            <h2 id="tituloCurso">
-                Selecciona un método de pago
-            </h2>
-
-
-            <div class="metodos-pago">
-
-                <button
-                    type="button"
-                    onclick="copiarNumero('932319559', this)"
-                >
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                    Yape
-                </button>
-
-
-                <button
-                    type="button"
-                    onclick="copiarNumero('932319559', this)"
-                >
-                    <i class="fa-solid fa-qrcode"></i>
-                    Plin
-                </button>
-
-
-                <button
-                    type="button"
-                    onclick="copiarLocal('197179850238004', this)"
-                >
-                    <i class="fa-solid fa-building-columns"></i>
-                    BCP Local
-                </button>
-
-
-                <button
-                    type="button"
-                    onclick="copiarInterbancario('00219717985023800459', this)"
-                >
-                    <i class="fa-solid fa-building-columns"></i>
-                    BCP Interbancario
-                </button>
-
-
-                <button
-                    type="button"
-                    onclick="copiarLocal('001108320200666899', this)"
-                >
-                    <i class="fa-solid fa-building-columns"></i>
-                    BBVA Local
-                </button>
-
-
-                <button
-                    type="button"
-                    onclick="copiarInterbancario('01183200020066689936', this)"
-                >
-                    <i class="fa-solid fa-building-columns"></i>
-                    BBVA Interbancario
-                </button>
-
-            </div>
-
-
-            <!-- QR -->
-            <div class="qrs">
-
-                <div>
-                    <img
-                        src="images/images/qr whas.jpeg"
-                        alt="QR Yape"
-                    >
-
-                    <p>Yape</p>
-                </div>
-
-
-                <div>
-                    <img
-                        src="images/images/qr plin.jpeg"
-                        alt="QR Plin"
-                    >
-
-                    <p>Plin</p>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Aviso de copia -->
-        <div
-            id="copyNotice"
-            class="copy-notice"
-            hidden
-        >
-
-            <span id="copyText"></span>
-
-            <button
-                type="button"
-                class="copy-close"
-                onclick="hideCopyNotice()"
-            >
-                ✖
-            </button>
-
-        </div>
-
+    <div class="contador-numeros">
+      <span class="dias">06</span>d :
+      <span class="horas">159,25</span>h :
+      <span class="minutos">9555</span>m :
+      <span class="segundos">573.300</span>s
     </div>
 
+    <p class="precio" style="display:none;">S/ 350</p>
 
-    <!-- ==============================
-         JAVASCRIPT
-    =============================== -->
+    <p class="mensaje-inicio" style="display:none;">
+      <span class="contador-inicio"></span>
+      <span class="texto-inicio">Curso finalizado.</span>
+    </p>
 
-    <script src="comunidad.js"></script>
+    <div class="card-buttons">
+      <button class="btn-buy"
+        onclick="abrirPago('Curso de Maniobras de Alta Velocidad Articulaciones Periféricas (HVLA)')">
+        Comprar
+      </button>
 
+      <button class="btn-book"
+        onclick="reservarWhatsApp('Curso de Maniobras de Alta Velocidad Articulaciones Periféricas (HVLA)')">
+        Reservar
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Curso 2 -->
+<div class="curso-card" id="curso2">
+  <img src="images/images/miraflores.jpeg" alt="Curso Miraflores">
+
+  <div class="info">
+    <h3>Curso de Maniobras de Alta Velocidad Articulaciones Periféricas (HVLA)</h3>
+    <p>Instructor: <b>Esmith Ore</b></p>
+    <p>Tipo: Curso Presencial</p>
+    <p>Fecha: 28 Junio 2026 - 9:00 AM</p>
+    <p>Ubicación: Lima, Miraflores</p>
+
+    <p class="precio-preventa">S/ 300</p>
+
+    <div class="contador-numeros">
+      <span class="dias">00</span>d :
+      <span class="horas">00</span>h :
+      <span class="minutos">00</span>m :
+      <span class="segundos">00</span>s
+    </div>
+
+    <p class="precio" style="display:none;">S/ 350</p>
+
+    <p class="mensaje-inicio" style="display:none;">
+      <span class="contador-inicio"></span>
+      <span class="texto-inicio">Curso finalizado.</span>
+    </p>
+
+    <div class="card-buttons">
+      <button class="btn-buy"
+        onclick="abrirPago('Curso de Maniobras de Alta Velocidad Articulaciones Periféricas (HVLA)')">
+        Comprar
+      </button>
+
+      <button class="btn-book"
+        onclick="reservarWhatsApp('Curso de Maniobras de Alta Velocidad Articulaciones Periféricas (HVLA)')">
+        Reservar
+      </button>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+      
+  <!-- Toast -->
+  <div id="toast">Número copiado ✅</div>
+  <!-- Modal de Pago --> <div id="modalPago" class="modal"> <div class="modal-content"> <span class="close" onclick="cerrarPago()">&times;</span> <h2 id="tituloCurso">Selecciona un método de pago</h2> <div class="metodos-pago"> <button onclick="copiarNumero('932319559', this)"> <i class="fa-solid fa-mobile-screen-button"></i> Yape </button> <button onclick="copiarNumero('932319559', this)"> <i class="fa-solid fa-qrcode"></i> Plin </button> <button onclick="copiarLocal('197179850238004', this)"> <i class="fa-solid fa-building-columns"></i> BCP Local </button> <button onclick="copiarInterbancario('00219717985023800459', this)"> <i class="fa-solid fa-building-columns"></i> BCP Interbancario </button> <button onclick="copiarLocal('001108320200666899', this)"> <i class="fa-solid fa-building-columns"></i> BBVA Local </button> <button onclick="copiarInterbancario('01183200020066689936', this)"> <i class="fa-solid fa-building-columns"></i> BBVA Interbancario </button> </div> <div class="qrs"> <div> <img src="images/images/qr whas.jpeg" alt="QR Yape"/> <p>Yape</p> </div> <div> <img src="images/images/qr plin.jpeg" alt="QR Plin"/> <p>Plin</p> </div> </div> </div> <div id="copyNotice" class="copy-notice" hidden> <span id="copyText"></span> <button type="button" class="copy-close" onclick="hideCopyNotice()">✖</button> </div> </div>
+
+  <script src="comunidad.js"></script>
 </body>
 </html>
