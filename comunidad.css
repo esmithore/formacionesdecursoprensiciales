@@ -55,7 +55,7 @@ body {
   height: 420px;       /* alto consistente */
   display: block;
   object-fit: contain; /* muestra la imagen completa */
-  background: #f5f5f5;    /* relleno elegante para bandas */
+  background: #000;    /* relleno elegante para bandas */
   border-radius: 10px;
   margin-bottom: 14px;
 }
