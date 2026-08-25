@@ -472,8 +472,9 @@ body {
     .curso-card > img {
         width: 100%;
         height: auto;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 4 / 5;
         object-fit: cover;
+       object-position: center;
         display: block;
     }
 
