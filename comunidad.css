@@ -471,11 +471,16 @@ body {
     /* Imagen */
     @media (max-width: 768px) {
 
+    .curso-card {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
     .curso-card > img {
         width: 100%;
-        aspect-ratio: 3 / 4;
-        object-fit: cover;
-        object-position: center;
+        height: auto;
         display: block;
     }
 
